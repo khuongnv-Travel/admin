@@ -1,4 +1,8 @@
 {
-    "/js/app.min.js": "/js/app.min.js",
-    "/css/app.min.css": "/css/app.min.css"
+    "/assets/css/app.min.css": "/assets/css/app.min.css",
+    "/assets/fonts/boxicons.eot": "/assets/fonts/boxicons.eot",
+    "/assets/fonts/boxicons.svg": "/assets/fonts/boxicons.svg",
+    "/assets/fonts/boxicons.ttf": "/assets/fonts/boxicons.ttf",
+    "/assets/fonts/boxicons.woff": "/assets/fonts/boxicons.woff",
+    "/assets/fonts/boxicons.woff2": "/assets/fonts/boxicons.woff2"
 }

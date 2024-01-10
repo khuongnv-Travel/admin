@@ -11,31 +11,17 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.styles([
-    'resources/css/assets/base.min.css',
-    'resources/css/assets/app.min.css',
-    'resources/css/assets/main.min.css',
-    'resources/css/assets/jquery-confirm.min.css',
-    'resources/css/assets/jquery-confirm.min.css',
-    'resources/css/assets/toast.min.css',
-    'resources/css/assets/font.min.css',
-    'resources/css/assets/admin.min.css',
-    'resources/css/assets/boxicons/css/boxicons.min.css',
-    'resources/css/assets/chosen/chosen.min.css',
-    'resources/css/assets/datepicker/datepicker.min.css',
-    
-], 'public/css/app.min.css');
+ mix.styles([
+    // 'resources/css/base.min.css',
+    'resources/css/app.min.css',
+    'resources/css/main.min.css',
+    'resources/css/boxicons/css/boxicons.min.css',
+], 'public/assets/css/app.min.css');
 
-mix.js([
-    'resources/js/assets/jquery.min.js',
-    'resources/js/assets/app.min.js',
-    'resources/js/assets/main.min.js',
-    'resources/js/assets/jquery-confirm.min.js',
-    'resources/js/assets/Library.js',
-    'resources/js/assets/toast.min.js',
-    'resources/js/assets/chosen.min.js',
-    'resources/js/assets/datepicker.min.js',
-    'resources/js/assets/tinymce.min.js',
-    'resources/js/pages/JS_Dashboard.js',
+mix.copyDirectory('resources/css/boxicons/fonts', 'public/assets/fonts');
 
-], 'public/js/app.min.js')
+// mix.js([
+    // 'resources/js/jquery.min.js',
+    // 'resources/js/app.min.js',
+    // 'resources/js/main.min.js',
+// ], 'public/assets/js/app.min.js');

@@ -1,16 +1,8 @@
 @extends('layouts.index')
 
-{{--
 @section('js')
-<script>
-    var baseUrl = "{{url('')}}";
-    var JS_Dashboard = new JS_Dashboard(baseUrl, '');
-    jQuery(document).ready(function() {
-        JS_Dashboard.loadIndex();
-    });
-</script>
+<script src="{{ URL::asset('dist/js/JS_Dashboard.js') }}"></script>
 @endsection
---}}
 
 @section('content')
 <div class="main-content container-fluid">
@@ -943,4 +935,11 @@
         </div>
     </div>
 </div>
+<script>
+    var baseUrl = "{{url('')}}";
+    var JS_Dashboard = new JS_Dashboard(baseUrl, '');
+    jQuery(document).ready(function() {
+        JS_Dashboard.loadIndex();
+    });
+</script>
 @endsection
