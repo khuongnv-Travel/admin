@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Backend\Controllers\DashboardController;
+use Modules\Backend\Controllers\ListtypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,8 @@ Route::prefix('/')->group(function(){
     Route::prefix('/')->group(function(){
         Route::get('', [DashboardController::class, 'index']);
         Route::get('dashboard', [DashboardController::class, 'index']);
+    });
+    Route::prefix('listtype')->group(function(){
+        Route::get('listtype', [ListtypeController::class, 'index']);
     });
 });

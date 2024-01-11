@@ -1,945 +1,643 @@
 @extends('layouts.index')
 
-@section('js')
-<script src="{{ URL::asset('dist/js/JS_Dashboard.js') }}"></script>
-@endsection
-
 @section('content')
-<div class="main-content container-fluid">
-    <div class="page-header">
-        <div class="row align-items-center">
-            <div class="col">
-                <h1 class="page-header-title">Dashboard</h1>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-auto">
-                <a class="btn btn-primary" href="javascript:;" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
-                    <i class="bi-person-plus-fill me-1"></i> Invite users
-                </a>
-            </div>
-            <!-- End Col -->
-        </div>
-        <!-- End Row -->
-    </div>
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
-            <!-- Card -->
-            <a class="card card-hover-shadow h-100" href="#">
-                <div class="card-body">
-                    <h6 class="card-subtitle">Total Users</h6>
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0">Dashboard</h4>
 
-                    <div class="row align-items-center gx-2 mb-1">
-                        <div class="col-6">
-                            <h2 class="card-title text-inherit">72,540</h2>
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-6">
-                            <!-- Chart -->
-                            <div class="chartjs-custom" style="height: 3rem;">
-                                <canvas class="js-chart" data-hs-chartjs-options='{
-                              "type": "line",
-                              "data": {
-                                 "labels": ["1 May","2 May","3 May","4 May","5 May","6 May","7 May","8 May","9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May","18 May","19 May","20 May","21 May","22 May","23 May","24 May","25 May","26 May","27 May","28 May","29 May","30 May","31 May"],
-                                 "datasets": [{
-                                  "data": [21,20,24,20,18,17,15,17,18,30,31,30,30,35,25,35,35,40,60,90,90,90,85,70,75,70,30,30,30,50,72],
-                                  "backgroundColor": ["rgba(55, 125, 255, 0)", "rgba(255, 255, 255, 0)"],
-                                  "borderColor": "#377dff",
-                                  "borderWidth": 2,
-                                  "pointRadius": 0,
-                                  "pointHoverRadius": 0
-                                }]
-                              },
-                              "options": {
-                                 "scales": {
-                                   "y": {
-                                     "display": false
-                                   },
-                                   "x": {
-                                     "display": false
-                                   }
-                                 },
-                                "hover": {
-                                  "mode": "nearest",
-                                  "intersect": false
-                                },
-                                "plugins": {
-                                  "tooltip": {
-                                    "postfix": "k",
-                                    "hasIndicator": true,
-                                    "intersect": false
-                                  }
-                                }
-                              }
-                            }'>
-                                </canvas>
-                            </div>
-                            <!-- End Chart -->
-                        </div>
-                        <!-- End Col -->
-                    </div>
-                    <!-- End Row -->
-
-                    <span class="badge bg-soft-success text-success">
-                        <i class="bi-graph-up"></i> 12.5%
-                    </span>
-                    <span class="text-body fs-6 ms-1">from 70,104</span>
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Fuse</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
                 </div>
-            </a>
-            <!-- End Card -->
-        </div>
 
-        <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
-            <!-- Card -->
-            <a class="card card-hover-shadow h-100" href="#">
-                <div class="card-body">
-                    <h6 class="card-subtitle">Sessions</h6>
-
-                    <div class="row align-items-center gx-2 mb-1">
-                        <div class="col-6">
-                            <h2 class="card-title text-inherit">29.4%</h2>
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-6">
-                            <!-- Chart -->
-                            <div class="chartjs-custom" style="height: 3rem;">
-                                <canvas class="js-chart" data-hs-chartjs-options='{
-                              "type": "line",
-                              "data": {
-                                 "labels": ["1 May","2 May","3 May","4 May","5 May","6 May","7 May","8 May","9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May","18 May","19 May","20 May","21 May","22 May","23 May","24 May","25 May","26 May","27 May","28 May","29 May","30 May","31 May"],
-                                 "datasets": [{
-                                  "data": [21,20,24,20,18,17,15,17,30,30,35,25,18,30,31,35,35,90,90,90,85,100,120,120,120,100,90,75,75,75,90],
-                                  "backgroundColor": ["rgba(55, 125, 255, 0)", "rgba(255, 255, 255, 0)"],
-                                  "borderColor": "#377dff",
-                                  "borderWidth": 2,
-                                  "pointRadius": 0,
-                                  "pointHoverRadius": 0
-                                }]
-                              },
-                              "options": {
-                                 "scales": {
-                                   "y": {
-                                     "display": false
-                                   },
-                                   "x": {
-                                     "display": false
-                                   }
-                                 },
-                                "hover": {
-                                  "mode": "nearest",
-                                  "intersect": false
-                                },
-                                "plugins": {
-                                  "tooltip": {
-                                    "postfix": "k",
-                                    "hasIndicator": true,
-                                    "intersect": false
-                                  }
-                                }
-                              }
-                            }'>
-                                </canvas>
-                            </div>
-                            <!-- End Chart -->
-                        </div>
-                        <!-- End Col -->
-                    </div>
-                    <!-- End Row -->
-
-                    <span class="badge bg-soft-success text-success">
-                        <i class="bi-graph-up"></i> 1.7%
-                    </span>
-                    <span class="text-body fs-6 ms-1">from 29.1%</span>
-                </div>
-            </a>
-            <!-- End Card -->
-        </div>
-
-        <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
-            <!-- Card -->
-            <a class="card card-hover-shadow h-100" href="#">
-                <div class="card-body">
-                    <h6 class="card-subtitle">Avg. Click Rate</h6>
-
-                    <div class="row align-items-center gx-2 mb-1">
-                        <div class="col-6">
-                            <h2 class="card-title text-inherit">56.8%</h2>
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-6">
-                            <!-- Chart -->
-                            <div class="chartjs-custom" style="height: 3rem;">
-                                <canvas class="js-chart" data-hs-chartjs-options='{
-                              "type": "line",
-                              "data": {
-                                 "labels": ["1 May","2 May","3 May","4 May","5 May","6 May","7 May","8 May","9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May","18 May","19 May","20 May","21 May","22 May","23 May","24 May","25 May","26 May","27 May","28 May","29 May","30 May","31 May"],
-                                 "datasets": [{
-                                  "data": [25,18,30,31,35,35,60,60,60,75,21,20,24,20,18,17,15,17,30,120,120,120,100,90,75,90,90,90,75,70,60],
-                                  "backgroundColor": ["rgba(55, 125, 255, 0)", "rgba(255, 255, 255, 0)"],
-                                  "borderColor": "#377dff",
-                                  "borderWidth": 2,
-                                  "pointRadius": 0,
-                                  "pointHoverRadius": 0
-                                }]
-                              },
-                              "options": {
-                                 "scales": {
-                                   "y": {
-                                     "display": false
-                                   },
-                                   "x": {
-                                     "display": false
-                                   }
-                                 },
-                                "hover": {
-                                  "mode": "nearest",
-                                  "intersect": false
-                                },
-                                "plugins": {
-                                  "tooltip": {
-                                    "postfix": "k",
-                                    "hasIndicator": true,
-                                    "intersect": false
-                                  }
-                                }
-                              }
-                            }'>
-                                </canvas>
-                            </div>
-                            <!-- End Chart -->
-                        </div>
-                        <!-- End Col -->
-                    </div>
-                    <!-- End Row -->
-
-                    <span class="badge bg-soft-danger text-danger">
-                        <i class="bi-graph-down"></i> 4.4%
-                    </span>
-                    <span class="text-body fs-6 ms-1">from 61.2%</span>
-                </div>
-            </a>
-            <!-- End Card -->
-        </div>
-
-        <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
-            <!-- Card -->
-            <a class="card card-hover-shadow h-100" href="#">
-                <div class="card-body">
-                    <h6 class="card-subtitle">Pageviews</h6>
-
-                    <div class="row align-items-center gx-2 mb-1">
-                        <div class="col-6">
-                            <h2 class="card-title text-inherit">92,913</h2>
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-6">
-                            <!-- Chart -->
-                            <div class="chartjs-custom" style="height: 3rem;">
-                                <canvas class="js-chart" data-hs-chartjs-options='{
-                              "type": "line",
-                              "data": {
-                                 "labels": ["1 May","2 May","3 May","4 May","5 May","6 May","7 May","8 May","9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May","18 May","19 May","20 May","21 May","22 May","23 May","24 May","25 May","26 May","27 May","28 May","29 May","30 May","31 May"],
-                                 "datasets": [{
-                                  "data": [21,20,24,15,17,30,30,35,35,35,40,60,12,90,90,85,70,75,43,75,90,22,120,120,90,85,100,92,92,92,92],
-                                  "backgroundColor": ["rgba(55, 125, 255, 0)", "rgba(255, 255, 255, 0)"],
-                                  "borderColor": "#377dff",
-                                  "borderWidth": 2,
-                                  "pointRadius": 0,
-                                  "pointHoverRadius": 0
-                                }]
-                              },
-                              "options": {
-                                 "scales": {
-                                   "y": {
-                                     "display": false
-                                   },
-                                   "x": {
-                                     "display": false
-                                   }
-                                 },
-                                "hover": {
-                                  "mode": "nearest",
-                                  "intersect": false
-                                },
-                                "plugins": {
-                                  "tooltip": {
-                                    "postfix": "k",
-                                    "hasIndicator": true,
-                                    "intersect": false
-                                  }
-                                }
-                              }
-                            }'>
-                                </canvas>
-                            </div>
-                            <!-- End Chart -->
-                        </div>
-                        <!-- End Col -->
-                    </div>
-                    <!-- End Row -->
-
-                    <span class="badge bg-soft-secondary text-body">0.0%</span>
-                    <span class="text-body fs-6 ms-1">from 2,913</span>
-                </div>
-            </a>
-            <!-- End Card -->
+            </div>
         </div>
     </div>
-    <!-- End Stats -->
+    <!-- end page title -->
 
     <div class="row">
-        <div class="col-lg-5 mb-3 mb-lg-5">
-            <!-- Card -->
-            <div class="card h-100">
-                <!-- Header -->
-                <div class="card-header card-header-content-between">
-                    <h4 class="card-header-title">Import data into Front Dashboard</h4>
-
-                    <!-- Dropdown -->
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm rounded-circle" id="reportsOverviewDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi-three-dots-vertical"></i>
-                        </button>
-
-                        <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="reportsOverviewDropdown2">
-                            <span class="dropdown-header">Settings</span>
-
-                            <a class="dropdown-item" href="#">
-                                <i class="bi-share-fill dropdown-item-icon"></i> Share chart
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="bi-download dropdown-item-icon"></i> Download
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="bi-alt dropdown-item-icon"></i> Connect other apps
-                            </a>
-
-                            <div class="dropdown-divider"></div>
-
-                            <span class="dropdown-header">Feedback</span>
-
-                            <a class="dropdown-item" href="#">
-                                <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Dropdown -->
-                </div>
-                <!-- End Header -->
-
-                <!-- Body -->
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
                 <div class="card-body">
-                    <p>See and talk to your users and leads immediately by importing your data into the Front Dashboard platform.</p>
-
-                    <ul class="list-group list-group-flush list-group-no-gutters">
-                        <li class="list-group-item">
-                            <h5 class="card-title">Import users from:</h5>
-                        </li>
-
-                        <!-- List Group Item -->
-                        <li class="list-group-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0">
-                                    <img class="avatar avatar-xs avatar-4x3" src="" alt="Image Description">
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h5 class="mb-0">Capsule</h5>
-                                            <span class="d-block fs-6 text-body">Users</span>
-                                        </div>
-                                        <!-- End Col -->
-
-                                        <div class="col-auto">
-                                            <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                                                Launch <span class="d-none d-sm-inline-block">importer</span>
-                                                <i class="bi-box-arrow-up-right ms-1"></i>
-                                            </a>
-                                        </div>
-                                        <!-- End Col -->
-                                    </div>
-                                    <!-- End Row -->
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End List Group Item -->
-
-                        <!-- List Group Item -->
-                        <li class="list-group-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0">
-                                    <img class="avatar avatar-xs avatar-4x3" src="" alt="Image Description">
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h5 class="mb-0">Mailchimp</h5>
-                                            <span class="d-block fs-6 text-body">Users</span>
-                                        </div>
-                                        <!-- End Col -->
-
-                                        <div class="col-auto">
-                                            <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                                                Launch <span class="d-none d-sm-inline-block">importer</span>
-                                                <i class="bi-box-arrow-up-right ms-1"></i>
-                                            </a>
-                                        </div>
-                                        <!-- End Col -->
-                                    </div>
-                                    <!-- End Row -->
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End List Group Item -->
-
-                        <!-- List Group Item -->
-                        <li class="list-group-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0">
-                                    <img class="avatar avatar-xs avatar-4x3" src="" alt="Image Description">
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h5 class="mb-0">Webdev</h5>
-                                            <span class="d-block fs-6 text-body">Users</span>
-                                        </div>
-                                        <!-- End Col -->
-
-                                        <div class="col-auto">
-                                            <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                                                Launch <span class="d-none d-sm-inline-block">importer</span>
-                                                <i class="bi-box-arrow-up-right ms-1"></i>
-                                            </a>
-                                        </div>
-                                        <!-- End Col -->
-                                    </div>
-                                    <!-- End Row -->
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End List Group Item -->
-
-                        <li class="list-group-item"><span class="small text-muted">Or you can <a class="link" href="#">sync data to Front Dashboard</a> to ensure your data is always up-to-date.</span></li>
-                    </ul>
+                    <div class="d-flex text-muted">
+                        <div class="flex-shrink-0 me-3 align-self-center">
+                            <div id="radialchart-1" class="apex-charts" dir="ltr"></div>
+                        </div>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <p class="mb-1">Users</p>
+                            <h5 class="mb-3">2.2k</h5>
+                            <p class="text-truncate mb-0"><span class="text-success me-2"> 0.02% <i class="ri-arrow-right-up-line align-bottom ms-1"></i></span> From previous</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- End Body -->
+                <!-- end card-body -->
             </div>
-            <!-- End Card -->
+            <!-- end card -->
         </div>
-        <!-- End Col -->
+        <!-- end col -->
 
-        <div class="col-lg-7 mb-3 mb-lg-5">
-            <!-- Card -->
-            <div class="card h-100">
-                <!-- Header -->
-                <div class="card-header card-header-content-sm-between">
-                    <h4 class="card-header-title mb-2 mb-sm-0">Monthly expenses</h4>
-
-                    <!-- Nav -->
-                    <ul class="nav nav-segment nav-fill" id="expensesTab" role="tablist">
-                        <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="thisWeek" data-trigger="click" data-action="toggle">
-                            <a class="nav-link active" href="javascript:;" data-bs-toggle="tab">This week</a>
-                        </li>
-                        <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="lastWeek" data-trigger="click" data-action="toggle">
-                            <a class="nav-link" href="javascript:;" data-bs-toggle="tab">Last week</a>
-                        </li>
-                    </ul>
-                    <!-- End Nav -->
-                </div>
-                <!-- End Header -->
-
-                <!-- Body -->
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
                 <div class="card-body">
-                    <div class="row mb-4">
-                        <div class="col-sm mb-2 mb-sm-0">
-                            <div class="d-flex align-items-center">
-                                <span class="h1 mb-0">35%</span>
-                                <span class="text-success ms-2">
-                                    <i class="bi-graph-up"></i> 25.3%
-                                </span>
-                            </div>
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 me-3 align-self-center">
+                            <div id="radialchart-2" class="apex-charts" dir="ltr"></div>
                         </div>
-                        <!-- End Col -->
-
-                        <div class="col-sm-auto align-self-sm-end">
-                            <div class="row fs-6 text-body">
-                                <div class="col-auto">
-                                    <span class="legend-indicator bg-primary"></span> New
-                                </div>
-                                <!-- End Col -->
-
-                                <div class="col-auto">
-                                    <span class="legend-indicator"></span> Overdue
-                                </div>
-                                <!-- End Col -->
-                            </div>
-                            <!-- End Row -->
+                        <div class="flex-grow-1 overflow-hidden">
+                            <p class="mb-1">Views per minute</p>
+                            <h5 class="mb-3">50</h5>
+                            <p class="text-truncate mb-0"><span class="text-success me-2"> 1.7% <i class="ri-arrow-right-up-line align-bottom ms-1"></i></span> From previous</p>
                         </div>
-                        <!-- End Col -->
                     </div>
-                    <!-- End Row -->
-
-                    <!-- Bar Chart -->
-                    <div class="chartjs-custom">
-                        <canvas id="updatingBarChart" style="height: 20rem;" data-hs-chartjs-options='{
-                          "type": "bar",
-                          "data": {
-                            "labels": ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10"],
-                            "datasets": [{
-                              "data": [200, 300, 290, 350, 150, 350, 300, 100, 125, 220],
-                              "backgroundColor": "#377dff",
-                              "hoverBackgroundColor": "#377dff",
-                              "borderColor": "#377dff",
-                              "maxBarThickness": "10"
-                            },
-                            {
-                              "data": [150, 230, 382, 204, 169, 290, 300, 100, 300, 225, 120],
-                              "backgroundColor": "#e7eaf3",
-                              "borderColor": "#e7eaf3",
-                              "maxBarThickness": "10"
-                            }]
-                          },
-                          "options": {
-                            "scales": {
-                              "y": {
-                                "grid": {
-                                  "color": "#e7eaf3",
-                                  "drawBorder": false,
-                                  "zeroLineColor": "#e7eaf3"
-                                },
-                                "ticks": {
-                                  "beginAtZero": true,
-                                  "stepSize": 100,
-                                  "fontSize": 12,
-                                  "fontColor":  "#97a4af",
-                                  "fontFamily": "Open Sans, sans-serif",
-                                  "padding": 10,
-                                  "postfix": "$"
-                                }
-                              },
-                              "x": {
-                                "grid": {
-                                  "display": false,
-                                  "drawBorder": false
-                                },
-                                "ticks": {
-                                  "fontSize": 12,
-                                  "fontColor":  "#97a4af",
-                                  "fontFamily": "Open Sans, sans-serif",
-                                  "padding": 5
-                                },
-                                "categoryPercentage": 0.5,
-                                "maxBarThickness": "10"
-                              }
-                            },
-                            "cornerRadius": 2,
-                            "plugins": {
-                              "tooltip": {
-                                "prefix": "$",
-                                "hasIndicator": true,
-                                "mode": "index",
-                                "intersect": false
-                              }
-                            },
-                            "hover": {
-                              "mode": "nearest",
-                              "intersect": true
-                            }
-                          }
-                        }'></canvas>
-                    </div>
-                    <!-- End Bar Chart -->
                 </div>
-                <!-- End Body -->
+                <!-- end card-body -->
             </div>
-            <!-- End Card -->
+            <!-- end card -->
         </div>
-        <!-- End Col -->
-    </div>
-    <!-- End Row -->
+        <!-- end col -->
 
-    <!-- Card -->
-    <div class="card mb-3 mb-lg-5">
-        <!-- Header -->
-        <div class="card-header">
-            <div class="row justify-content-between align-items-center flex-grow-1">
-                <div class="col-md">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="card-header-title">Users</h4>
-
-                        <!-- Datatable Info -->
-                        <div id="datatableCounterInfo" style="display: none;">
-                            <div class="d-flex align-items-center">
-                                <span class="fs-6 me-3">
-                                    <span id="datatableCounter">0</span>
-                                    Selected
-                                </span>
-                                <a class="btn btn-outline-danger btn-sm" href="javascript:;">
-                                    <i class="tio-delete-outlined"></i> Delete
-                                </a>
-                            </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex text-muted">
+                        <div class="flex-shrink-0 me-3 align-self-center">
+                            <div id="radialchart-3" class="apex-charts" dir="ltr"></div>
                         </div>
-                        <!-- End Datatable Info -->
+                        <div class="flex-grow-1 overflow-hidden">
+                            <p class="mb-1">Bounce Rate</p>
+                            <h5 class="mb-3">24.03 %</h5>
+                            <p class="text-truncate mb-0"><span class="text-danger me-2"> 0.01% <i class="ri-arrow-right-down-line align-bottom ms-1"></i></span> From previous</p>
+                        </div>
                     </div>
                 </div>
-                <!-- End Col -->
-
-                <div class="col-auto">
-                    <!-- Filter -->
-                    <div class="row align-items-sm-center">
-                        <div class="col-sm-auto">
-                            <div class="row align-items-center gx-0">
-                                <div class="col">
-                                    <span class="text-secondary me-2">Status:</span>
-                                </div>
-                                <!-- End Col -->
-
-                                <div class="col-auto">
-                                    <!-- Select -->
-                                    <div class="tom-select-custom tom-select-custom-end">
-                                        <select class="js-select js-datatable-filter form-select form-select-sm form-select-borderless" data-target-column-index="2" data-target-table="datatable" autocomplete="off" data-hs-tom-select-options='{
-                                  "searchInDropdown": false,
-                                  "hideSearch": true,
-                                  "dropdownWidth": "10rem"
-                                }'>
-                                            <option value="null" selected>All</option>
-                                            <option value="successful">Successful</option>
-                                            <option value="overdue">Overdue</option>
-                                            <option value="pending">Pending</option>
-                                        </select>
-                                    </div>
-                                    <!-- End Select -->
-                                </div>
-                                <!-- End Col -->
-                            </div>
-                            <!-- End Row -->
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-sm-auto">
-                            <div class="row align-items-center gx-0">
-                                <div class="col">
-                                    <span class="text-secondary me-2">Signed up:</span>
-                                </div>
-                                <!-- End Col -->
-
-                                <div class="col-auto">
-                                    <!-- Select -->
-                                    <div class="tom-select-custom tom-select-custom-end">
-                                        <select class="js-select js-datatable-filter form-select form-select-sm form-select-borderless" data-target-column-index="5" data-target-table="datatable" autocomplete="off" data-hs-tom-select-options='{
-                                  "searchInDropdown": false,
-                                  "hideSearch": true,
-                                  "dropdownWidth": "10rem"
-                                }'>
-                                            <option value="null" selected>All</option>
-                                            <option value="1 year ago">1 year ago</option>
-                                            <option value="6 months ago">6 months ago</option>
-                                        </select>
-                                    </div>
-                                    <!-- End Select -->
-                                </div>
-                                <!-- End Col -->
-                            </div>
-                            <!-- End Row -->
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-md">
-                            <form>
-                                <!-- Search -->
-                                <div class="input-group input-group-merge input-group-flush">
-                                    <div class="input-group-prepend input-group-text">
-                                        <i class="bi-search"></i>
-                                    </div>
-                                    <input id="datatableSearch" type="search" class="form-control" placeholder="Search users" aria-label="Search users">
-                                </div>
-                                <!-- End Search -->
-                            </form>
-                        </div>
-                        <!-- End Col -->
-                    </div>
-                    <!-- End Filter -->
-                </div>
-                <!-- End Col -->
+                <!-- end card-body -->
             </div>
-            <!-- End Row -->
+            <!-- end card -->
         </div>
-        <!-- End Header -->
+        <!-- end col -->
 
-        <!-- Table -->
-        <div class="table-responsive datatable-custom">
-            <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
-                   "columnDefs": [{
-                      "targets": [0, 1, 4],
-                      "orderable": false
-                    }],
-                   "order": [],
-                   "info": {
-                     "totalQty": "#datatableWithPaginationInfoTotalQty"
-                   },
-                   "search": "#datatableSearch",
-                   "entries": "#datatableEntries",
-                   "pageLength": 8,
-                   "isResponsive": false,
-                   "isShowPaging": false,
-                   "pagination": "datatablePagination"
-                 }'>
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col" class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="datatableCheckAll">
-                                <label class="form-check-label" for="datatableCheckAll"></label>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex text-muted">
+                        <div class="flex-shrink-0  me-3 align-self-center">
+                            <div class="avatar-sm">
+                                <div class="avatar-title bg-light rounded-circle text-primary font-size-20">
+                                    <i class="ri-group-line"></i>
+                                </div>
                             </div>
-                        </th>
-                        <th class="table-column-ps-0">Full name</th>
-                        <th>Status</th>
-                        <th>Type</th>
-                        <th>Email</th>
-                        <th>Signed up</th>
-                        <th>User ID</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="usersDataCheck2">
-                                <label class="form-check-label" for="usersDataCheck2"></label>
-                            </div>
-                        </td>
-                        <td class="table-column-ps-0">
-                            <a class="d-flex align-items-center" href="user-profile.html">
-                                <div class="flex-shrink-0">
-                                    <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Amanda Harvey <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <span class="legend-indicator bg-success"></span>Successful
-                        </td>
-                        <td>Unassigned</td>
-                        <td>amanda@site.com</td>
-                        <td>1 year ago</td>
-                        <td>67989</td>
-                    </tr>
-
-                    <tr>
-                        <td class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="usersDataCheck3">
-                                <label class="form-check-label" for="usersDataCheck3"></label>
-                            </div>
-                        </td>
-                        <td class="table-column-ps-0">
-                            <a class="d-flex align-items-center" href="user-profile.html">
-                                <div class="flex-shrink-0">
-                                    <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
-                                        <span class="avatar-initials">A</span>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Anne Richard</h5>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <span class="legend-indicator bg-success"></span>Successful
-                        </td>
-                        <td>Subscription</td>
-                        <td>anne@site.com</td>
-                        <td>6 months ago</td>
-                        <td>67326</td>
-                    </tr>
-
-                    <tr>
-                        <td class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="usersDataCheck4">
-                                <label class="form-check-label" for="usersDataCheck4"></label>
-                            </div>
-                        </td>
-                        <td class="table-column-ps-0">
-                            <a class="d-flex align-items-center" href="user-profile.html">
-                                <div class="flex-shrink-0">
-                                    <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">David Harrison</h5>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <span class="legend-indicator bg-danger"></span>Overdue
-                        </td>
-                        <td>Non-subscription</td>
-                        <td>david@site.com</td>
-                        <td>6 months ago</td>
-                        <td>55821</td>
-                    </tr>
-
-                    <tr>
-                        <td class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="usersDataCheck5">
-                                <label class="form-check-label" for="usersDataCheck5"></label>
-                            </div>
-                        </td>
-                        <td class="table-column-ps-0">
-                            <a class="d-flex align-items-center" href="user-profile.html">
-                                <div class="flex-shrink-0">
-                                    <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Finch Hoot</h5>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <span class="legend-indicator bg-warning"></span>Pending
-                        </td>
-                        <td>Subscription</td>
-                        <td>finch@site.com</td>
-                        <td>1 year ago</td>
-                        <td>85214</td>
-                    </tr>
-
-                    <tr>
-                        <td class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="usersDataCheck6">
-                                <label class="form-check-label" for="usersDataCheck6"></label>
-                            </div>
-                        </td>
-                        <td class="table-column-ps-0">
-                            <a class="d-flex align-items-center" href="user-profile.html">
-                                <div class="flex-shrink-0">
-                                    <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                                        <span class="avatar-initials">B</span>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Bob Dean</h5>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <span class="legend-indicator bg-success"></span>Successful
-                        </td>
-                        <td>Subscription</td>
-                        <td>bob@site.com</td>
-                        <td>6 months ago</td>
-                        <td>75470</td>
-                    </tr>
-
-                    <tr>
-                        <td class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="usersDataCheck7">
-                                <label class="form-check-label" for="usersDataCheck7"></label>
-                            </div>
-                        </td>
-                        <td class="table-column-ps-0">
-                            <a class="d-flex align-items-center" href="user-profile.html">
-                                <div class="flex-shrink-0">
-                                    <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <span class="legend-indicator bg-warning"></span>Pending
-                        </td>
-                        <td>Subscription</td>
-                        <td>Ella@site.com</td>
-                        <td>1 year ago</td>
-                        <td>37534</td>
-                    </tr>
-
-                    <tr>
-                        <td class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="usersDataCheck8">
-                                <label class="form-check-label" for="usersDataCheck8"></label>
-                            </div>
-                        </td>
-                        <td class="table-column-ps-0">
-                            <a class="d-flex align-items-center" href="user-profile.html">
-                                <div class="flex-shrink-0">
-                                    <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Sam Kart</h5>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <span class="legend-indicator bg-success"></span>Successful
-                        </td>
-                        <td>Non-subscription</td>
-                        <td>sam@site.com</td>
-                        <td>1 year ago</td>
-                        <td>57300</td>
-                    </tr>
-
-                    <tr>
-                        <td class="table-column-pe-0">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="usersDataCheck9">
-                                <label class="form-check-label" for="usersDataCheck9"></label>
-                            </div>
-                        </td>
-                        <td class="table-column-ps-0">
-                            <a class="d-flex align-items-center" href="user-profile.html">
-                                <div class="flex-shrink-0">
-                                    <div class="avatar avatar-sm avatar-circle">
-                                        <img class="avatar-img" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="text-inherit mb-0">Costa Quinn</h5>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <span class="legend-indicator bg-danger"></span>Overdue
-                        </td>
-                        <td>Unassigned</td>
-                        <td>costa@site.com</td>
-                        <td>1 year ago</td>
-                        <td>71288</td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+                        <div class="flex-grow-1 overflow-hidden">
+                            <p class="mb-1">New Visitors</p>
+                            <h5 class="mb-3">435</h5>
+                            <p class="text-truncate mb-0"><span class="text-success me-2"> 0.01% <i class="ri-arrow-right-up-line align-bottom ms-1"></i></span> From previous</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
         </div>
+        <!-- end col -->
     </div>
+    <!-- end row -->
+
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">Overview</h5>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <div>
+                                <button type="button" class="btn btn-soft-secondary btn-sm">
+                                    ALL
+                                </button>
+                                <button type="button" class="btn btn-soft-primary btn-sm">
+                                    1M
+                                </button>
+                                <button type="button" class="btn btn-soft-secondary btn-sm">
+                                    6M
+                                </button>
+                                <button type="button" class="btn btn-soft-secondary btn-sm active">
+                                    1Y
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="mixed-chart" class="apex-charts" dir="ltr"></div>
+                    </div>
+                </div>
+                <!-- end card-body -->
+
+                <div class="card-body border-top">
+                    <div class="text-muted text-center">
+                        <div class="row">
+                            <div class="col-4 border-end">
+                                <div>
+                                    <p class="mb-2"><i class="bx bx-circle font-size-12 text-primary me-1"></i> Expenses</p>
+                                    <h5 class="font-size-16 mb-0">$ 8,524 <span class="text-success font-size-12"><i class="bx bx-menu-up font-size-14 me-1"></i>1.2 %</span></h5>
+                                </div>
+                            </div>
+                            <div class="col-4 border-end">
+                                <div>
+                                    <p class="mb-2"><i class="bx bx-circle font-size-12 text-light me-1"></i> Maintenance</p>
+                                    <h5 class="font-size-16 mb-0">$ 8,524 <span class="text-success font-size-12"><i class="bx bx-menu-up font-size-14 me-1"></i>2.0 %</span></h5>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div>
+                                    <p class="mb-2"><i class="bx bx-circle font-size-12 text-danger me-1"></i> Profit</p>
+                                    <h5 class="font-size-16 mb-0">$ 8,524 <span class="text-success font-size-12"><i class="bx bx-menu-up font-size-14 me-1"></i>0.4 %</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end col -->
+
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex  align-items-center">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">Social Source</h5>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <select class="form-select form-select-sm mb-0 my-n1">
+                                <option value="MAY" selected="">May</option>
+                                <option value="AP">April</option>
+                                <option value="MA">March</option>
+                                <option value="FE">February</option>
+                                <option value="JA">January</option>
+                                <option value="DE">December</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="radialBar-chart" class="apex-charts" dir="ltr"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="social-source text-center mt-3">
+                                <div class="avatar-xs mx-auto mb-3">
+                                    <span class="avatar-title rounded-circle bg-primary font-size-18">
+                                        <i class="ri  ri-facebook-circle-fill text-white"></i>
+                                    </span>
+                                </div>
+                                <h5 class="font-size-15">Facebook</h5>
+                                <p class="text-muted mb-0">125 sales</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="social-source text-center mt-3">
+                                <div class="avatar-xs mx-auto mb-3">
+                                    <span class="avatar-title rounded-circle bg-info font-size-18">
+                                        <i class="ri  ri-twitter-fill text-white"></i>
+                                    </span>
+                                </div>
+                                <h5 class="font-size-15">Twitter</h5>
+                                <p class="text-muted mb-0">112 sales</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="social-source text-center mt-3">
+                                <div class="avatar-xs mx-auto mb-3">
+                                    <span class="avatar-title rounded-circle bg-danger font-size-18">
+                                        <i class="ri ri-instagram-line text-white"></i>
+                                    </span>
+                                </div>
+                                <h5 class="font-size-15">Instagram</h5>
+                                <p class="text-muted mb-0">104 sales</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order Stats</h5>
+                    <div>
+                        <ul class="list-unstyled">
+                            <li class="py-3">
+                                <div class="d-flex">
+                                    <div class="avatar-xs align-self-center me-3">
+                                        <div class="avatar-title rounded-circle bg-light text-primary font-size-18">
+                                            <i class="ri-checkbox-circle-line"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p class="text-muted mb-2">Completed</p>
+                                        <div class="progress progress-sm animated-progess">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3">
+                                <div class="d-flex">
+                                    <div class="avatar-xs align-self-center me-3">
+                                        <div class="avatar-title rounded-circle bg-light text-primary font-size-18">
+                                            <i class="ri-calendar-2-line"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p class="text-muted mb-2">Pending</p>
+                                        <div class="progress progress-sm animated-progess">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3">
+                                <div class="d-flex">
+                                    <div class="avatar-xs align-self-center me-3">
+                                        <div class="avatar-title rounded-circle bg-light text-primary font-size-18">
+                                            <i class="ri-close-circle-line"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p class="text-muted mb-2">Cancel</p>
+                                        <div class="progress progress-sm animated-progess">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 19%" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="mt-2">
+                                    <p class="text-muted mb-2">Completed</p>
+                                    <h5 class="font-size-16 mb-0">70</h5>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="mt-2">
+                                    <p class="text-muted mb-2">Pending</p>
+                                    <h5 class="font-size-16 mb-0">45</h5>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="mt-2">
+                                    <p class="text-muted mb-2">Cancel</p>
+                                    <h5 class="font-size-16 mb-0">19</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end col -->
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Notifications</h4>
+
+                    <div class="pe-3" data-simplebar="" style="max-height: 287px;">
+                        <a href="#" class="text-body d-block">
+                            <div class="d-flex py-3">
+                                <div class="flex-shrink-0 me-3 align-self-center">
+                                    <img class="rounded-circle avatar-xs" alt="" src="images/avatar-2.jpg">
+                                </div>
+
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <h5 class="font-size-14 mb-1">Scott Elliott</h5>
+                                    <p class="text-truncate mb-0">
+                                        If several languages coalesce
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 font-size-13">
+                                    20 min ago
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="text-body d-block">
+                            <div class="d-flex py-3">
+                                <div class="flex-shrink-0 me-3 align-self-center">
+                                    <div class="avatar-xs">
+                                        <span class="avatar-title bg-soft-primary rounded-circle text-primary">
+                                            <i class="bx bx-account-supervisor"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <h5 class="font-size-14 mb-1">Team A</h5>
+                                    <p class="text-truncate mb-0">
+                                        Team A Meeting 9:15 AM
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 font-size-13">
+                                    9:00 am
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="text-body d-block">
+                            <div class="d-flex py-3">
+                                <div class="flex-shrink-0 me-3 align-self-center">
+                                    <img class="rounded-circle avatar-xs" alt="" src="images/avatar-3.jpg">
+                                </div>
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <h5 class="font-size-14 mb-1">Frank Martin</h5>
+                                    <p class="text-truncate mb-0">
+                                        Neque porro quisquam est
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 font-size-13">
+                                    8:54 am
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="text-body d-block">
+                            <div class="d-flex py-3">
+                                <div class="flex-shrink-0 me-3 align-self-center">
+                                    <div class="avatar-xs">
+                                        <span class="avatar-title bg-soft-primary rounded-circle text-primary">
+                                            <i class="bx bx-email-outline"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <h5 class="font-size-14 mb-1">Updates</h5>
+                                    <p class="text-truncate mb-0">
+                                        It will be as simple as fact
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 font-size-13">
+                                    27-03-2020
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="text-body d-block">
+                            <div class="d-flex py-3">
+                                <div class="flex-shrink-0 me-3 align-self-center">
+                                    <img class="rounded-circle avatar-xs" alt="" src="images/avatar-4.jpg">
+                                </div>
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <h5 class="font-size-14 mb-1">Terry Garrick</h5>
+                                    <p class="text-truncate mb-0">
+                                        At vero eos et accusamus et
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 font-size-13">
+                                    27-03-2020
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end col -->
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Revenue by Location</h5>
+
+                    <div>
+                        <div id="usa" style="height: 226px"></div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="#" class="btn btn-primary btn-sm">View More</a>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Latest Transaction</h4>
+
+                    <div class="table-responsive">
+                        <table class="table table-centered table-nowrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width: 50px;">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheckall">
+                                            <label class="form-check-label" for="customCheckall"></label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" style="width: 60px;"></th>
+                                    <th scope="col">ID &amp; Name</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck1">
+                                            <label class="form-check-label" for="customCheck1"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <img src="images/avatar-2.jpg" alt="user" class="avatar-xs rounded-circle">
+                                    </td>
+                                    <td>
+                                        <p class="mb-1 font-size-12">#AP1234</p>
+                                        <h5 class="font-size-15 mb-0">David Wiley</h5>
+                                    </td>
+                                    <td>02 Nov, 2019</td>
+                                    <td>$ 1,234</td>
+                                    <td>1</td>
+
+                                    <td>
+                                        $ 1,234
+                                    </td>
+                                    <td>
+                                        <i class="bx bx-checkbox-blank-circle text-success me-1"></i> Confirm
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-success btn-sm">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm">Cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+                                            <label class="form-check-label" for="customCheck2"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="avatar-xs">
+                                            <span class="avatar-title rounded-circle bg-soft-primary text-success">
+                                                W
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="mb-1 font-size-12">#AP1235</p>
+                                        <h5 class="font-size-15 mb-0">Walter Jones</h5>
+                                    </td>
+                                    <td>04 Nov, 2019</td>
+                                    <td>$ 822</td>
+                                    <td>2</td>
+
+                                    <td>
+                                        $ 1,644
+                                    </td>
+                                    <td>
+                                        <i class="bx bx-checkbox-blank-circle text-success me-1"></i> Confirm
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-success btn-sm">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm">Cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck3">
+                                            <label class="form-check-label" for="customCheck3"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <img src="images/avatar-3.jpg" alt="user" class="avatar-xs rounded-circle">
+                                    </td>
+                                    <td>
+                                        <p class="mb-1 font-size-12">#AP1236</p>
+                                        <h5 class="font-size-15 mb-0">Eric Ryder</h5>
+                                    </td>
+                                    <td>05 Nov, 2019</td>
+                                    <td>$ 1,153</td>
+                                    <td>1</td>
+
+                                    <td>
+                                        $ 1,153
+                                    </td>
+                                    <td>
+                                        <i class="bx bx-checkbox-blank-circle text-danger me-1"></i> Cancel
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-success btn-sm">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm">Cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck4">
+                                            <label class="form-check-label" for="customCheck4"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <img src="images/avatar-6.jpg" alt="user" class="avatar-xs rounded-circle">
+                                    </td>
+                                    <td>
+                                        <p class="mb-1 font-size-12">#AP1237</p>
+                                        <h5 class="font-size-15 mb-0">Kenneth Jackson</h5>
+                                    </td>
+                                    <td>06 Nov, 2019</td>
+                                    <td>$ 1,365</td>
+                                    <td>1</td>
+
+                                    <td>
+                                        $ 1,365
+                                    </td>
+                                    <td>
+                                        <i class="bx bx-checkbox-blank-circle text-success me-1"></i> Confirm
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-success btn-sm">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm">Cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck5">
+                                            <label class="form-check-label" for="customCheck5"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="avatar-xs">
+                                            <span class="avatar-title rounded-circle bg-soft-primary text-success">
+                                                R
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="mb-1 font-size-12">#AP1238</p>
+                                        <h5 class="font-size-15 mb-0">Ronnie Spiller</h5>
+                                    </td>
+                                    <td>08 Nov, 2019</td>
+                                    <td>$ 740</td>
+                                    <td>2</td>
+
+                                    <td>
+                                        $ 1,480
+                                    </td>
+                                    <td>
+                                        <i class="bx bx-checkbox-blank-circle text-warning me-1"></i> Pending
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-success btn-sm">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm">Cancel</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+
 </div>
-<script>
-    var baseUrl = "{{url('')}}";
-    var JS_Dashboard = new JS_Dashboard(baseUrl, '');
-    jQuery(document).ready(function() {
-        JS_Dashboard.loadIndex();
-    });
-</script>
 @endsection

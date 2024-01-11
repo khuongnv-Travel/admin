@@ -1,12 +1,12 @@
 <?php
 
 return [
-    // 'dashboard' => [
-    //     'name' => 'Trang chủ',
-    //     'icon' => 'bx bxs-dashboard',
-    //     'checkRole' => false,
-    //     'child' => false
-    // ],
+    'dashboard' => [
+        'name' => 'Trang chủ',
+        'icon' => 'bx bxs-dashboard',
+        'checkRole' => false,
+        'child' => false
+    ],
     'listtype' => [
         'name' => 'Quản trị danh mục',
         'icon' => 'bx bx-list-ul',
@@ -17,38 +17,6 @@ return [
                 'icon' => 'bx bx-chevrons-right',
                 'checkRole' => 'ADMIN',
                 'child' => false,
-            ],
-            'listtype2' => [
-                'name' => 'Loại danh mục2',
-                'icon' => 'bx bx-chevrons-right',
-                'checkRole' => 'ADMIN',
-                'child' => [
-                    'listtype21' => [
-                        'name' => 'Loại danh mục1',
-                        'icon' => 'bx bx-chevrons-right',
-                        'checkRole' => 'ADMIN',
-                        'child' => false,
-                    ],
-                    'listtype22' => [
-                        'name' => 'Loại danh mục2',
-                        'icon' => 'bx bx-chevrons-right',
-                        'checkRole' => 'ADMIN',
-                        'child' => [
-                            'listtype221' => [
-                                'name' => 'Loại danh mục 21',
-                                'icon' => 'bx bx-chevrons-right',
-                                'checkRole' => 'ADMIN',
-                                'child' => false,
-                            ],
-                            'listtype222' => [
-                                'name' => 'Loại danh mục 22',
-                                'icon' => 'bx bx-chevrons-right',
-                                'checkRole' => 'ADMIN',
-                                'child' => false,
-                            ],
-                        ],
-                    ],
-                ],
             ],
             'list' => [
                 'name' => 'Danh mục đối tượng',

@@ -498,7 +498,7 @@ body[data-layout=horizontal] .footer {
 }
 
 #sidebar-menu ul li ul.sub-menu li a {
-    padding: .4rem 1.5rem .4rem 3.2rem;
+    padding: .4rem 1.5rem .4rem 2.8rem;
     font-size: 14px;
     color: #7c8a96
 }
@@ -508,7 +508,7 @@ body[data-layout=horizontal] .footer {
 }
 
 #sidebar-menu ul li ul.sub-menu li ul.sub-menu li a {
-    padding: .4rem 1.5rem .4rem 4.2rem;
+    padding: .4rem 1.5rem .4rem 4rem;
     font-size: 14px
 }
 
