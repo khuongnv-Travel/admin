@@ -22,6 +22,9 @@ Route::prefix('/')->group(function(){
         Route::get('dashboard', [DashboardController::class, 'index']);
     });
     Route::prefix('listtype')->group(function(){
-        Route::get('listtype', [ListtypeController::class, 'index']);
+        Route::prefix('listtype')->group(function(){
+            Route::get('', [ListtypeController::class, 'index']);
+            Route::get('loadList', [ListtypeController::class, 'loadList']);
+        });
     });
 });

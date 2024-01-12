@@ -3761,3 +3761,6 @@ input[switch=dark]:checked+label {
 }
 
 /*# sourceMappingURL=app.min.css.map */
+.datatable-buttons{
+    cursor: pointer;
+}

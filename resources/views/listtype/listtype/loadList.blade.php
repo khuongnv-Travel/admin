@@ -7,7 +7,7 @@
         <col width="15%">
     </colgroup>
     <thead class="thead-light">
-        <th><input type="checkbox" name="chk_all_item_id" onclick="checkbox_all_item_id(document.forms[0].chk_item_id);"></th>
+        <th align="center"><input type="checkbox" name="chk_all_item_id" onclick="checkbox_all_item_id(document.forms[0].chk_item_id);"></th>
         <th>Mã danh mục</th>
         <th>Tên danh mục</th>
         <th>Thứ tự</th>

@@ -351,19 +351,8 @@
 		</div> <!-- end slimscroll-menu-->
 	</div>
 	<div class="rightbar-overlay"></div>
-	<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-	<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-	<script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
-	<!-- <script src="{{ asset('assets/js/simplebar.min.js') }}"></script> -->
-	<script src="{{ asset('assets/js/waves.min.js') }}"></script>
-	<!-- <script src="{{ asset('assets/js/jquery.vmap.min.js') }}"></script>
-	<script src="{{ asset('assets/js/jquery.vmap.usa.js') }}"></script> -->
-	<script src="{{ asset('assets/js/main.min.js') }}"></script>
-	<script src="{{ asset('assets/js/pages.min.js') }}"></script>
+	<script src="{{ asset('assets/js/app.min.js') }}"></script>
 	@yield('script')
-
-
-
 </body>
 
 </html>

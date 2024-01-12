@@ -1,9 +1,9 @@
 {
-    "/assets/js/pages.min.js": "/assets/js/pages.min.js",
     "/assets/css/app.min.css": "/assets/css/app.min.css",
     "/assets/fonts/boxicons.eot": "/assets/fonts/boxicons.eot",
     "/assets/fonts/boxicons.svg": "/assets/fonts/boxicons.svg",
     "/assets/fonts/boxicons.ttf": "/assets/fonts/boxicons.ttf",
     "/assets/fonts/boxicons.woff": "/assets/fonts/boxicons.woff",
-    "/assets/fonts/boxicons.woff2": "/assets/fonts/boxicons.woff2"
+    "/assets/fonts/boxicons.woff2": "/assets/fonts/boxicons.woff2",
+    "/assets/js/app.min.js": "/assets/js/app.min.js"
 }

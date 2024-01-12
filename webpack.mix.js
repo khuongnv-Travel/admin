@@ -20,8 +20,13 @@ const mix = require('laravel-mix');
 
 mix.copyDirectory('resources/css/boxicons/fonts', 'public/assets/fonts');
 
-mix.js([
+mix.scripts([
+    'resources/js/jquery.min.js',
+    'resources/js/bootstrap.bundle.min.js',
+    'resources/js/metisMenu.min.js',
+    'resources/js/waves.min.js',
+    'resources/js/chosen.min.js',
+    'resources/js/Library.js',
+    'resources/js/main.min.js',
     'resources/js/JS_Listtype.js',
-    // 'resources/js/app.min.js',
-    // 'resources/js/main.min.js',
-], 'public/assets/js/pages.min.js');
+], 'public/assets/js/app.min.js');
