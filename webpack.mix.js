@@ -12,10 +12,12 @@ const mix = require('laravel-mix');
  */
 
  mix.styles([
-    // 'resources/css/base.min.css',
     'resources/css/app.min.css',
     'resources/css/main.min.css',
     'resources/css/boxicons/css/boxicons.min.css',
+    'resources/css/chosen/chosen.min.css',
+    'resources/css/toast.min.css',
+    'resources/css/jquery-confirm.min.css',
 ], 'public/assets/css/app.min.css');
 
 mix.copyDirectory('resources/css/boxicons/fonts', 'public/assets/fonts');
@@ -26,7 +28,11 @@ mix.scripts([
     'resources/js/metisMenu.min.js',
     'resources/js/waves.min.js',
     'resources/js/chosen.min.js',
+    'resources/js/toast.min.js',
+    'resources/js/jquery-confirm.min.js',
+    'resources/js/chosen/chosen.min.js',
     'resources/js/Library.js',
     'resources/js/main.min.js',
-    'resources/js/JS_Listtype.js',
+    'resources/js/pages/JS_Listtype.js',
+    'resources/js/pages/JS_List.js',
 ], 'public/assets/js/app.min.js');

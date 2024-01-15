@@ -1,7 +1,6 @@
 @extends('layouts.index')
 
 @section('script')
-<!-- <script src="{{ asset('assets/js/JS_Listtype.js') }}"></script> -->
 <script type="text/javascript">
     var baseUrl = "{{ url('') }}";
     var JS_Listtype = new JS_Listtype(baseUrl, 'listtype', 'listtype');

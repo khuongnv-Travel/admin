@@ -11,6 +11,7 @@
 </head>
 
 <body data-sidebar="dark">
+	<div class="main_loadding"></div>
 	<div id="layout-wrapper">
 		<header id="page-topbar">
 			<div class="navbar-header">

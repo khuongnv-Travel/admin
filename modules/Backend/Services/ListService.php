@@ -88,7 +88,6 @@ class ListService extends BaseService
     public function _update($input): array
     {
         $listtype = $this->listtypeService->where('id', $input['listtype_id'])->first();
-        $input['listtype_code'] = $listtype->code ?? null;
         $check = $this->validateService->validate($input, 'danh mục');
         if ($check['status'] === false) {
             foreach ($check['message'] as $key => $message) {

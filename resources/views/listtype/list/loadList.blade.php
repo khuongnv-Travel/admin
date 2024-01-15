@@ -25,7 +25,7 @@
             <td onclick="{select_row(this);}" align="center">
                 <label class="custom-control custom-checkbox p-0 m-0 pointer " style="cursor: pointer;">
                     <input type="checkbox" hidden class="custom-control-input toggle-status" id="status_{{$id}}" data-id="{{$id}}" {{ $data->status == 1 ? 'checked' : '' }}>
-                    <span class="custom-control-indicator p-0 m-0" onclick="changeStatus('{{$id}}')"></span>
+                    <span class="custom-control-indicator p-0 m-0" onclick="JS_List.changeStatus('{{$id}}')"></span>
                 </label>
             </td>
         </tr>

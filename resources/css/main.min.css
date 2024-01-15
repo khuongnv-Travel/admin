@@ -1,5 +1,19 @@
 @import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap);
 
+.main_loadding {
+    display: none;
+    position: fixed;
+    z-index: 999999999999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    cursor: wait;
+    background: url('./../../images/loading.gif') 50% 50% no-repeat;
+    background-size: 60px;
+    /* background-color: rgba(19, 33, 68, 0.25); */
+}
+
 #page-topbar {
     position: fixed;
     top: 0;
@@ -3763,4 +3777,50 @@ input[switch=dark]:checked+label {
 /*# sourceMappingURL=app.min.css.map */
 .datatable-buttons{
     cursor: pointer;
+}
+
+.custom-checkbox .custom-control-indicator {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 18px;
+    background-color: #818181;
+    border-radius: 15px;
+    margin-right: 10px;
+    -webkit-transition: background .3s ease;
+    transition: background .3s ease;
+    vertical-align: middle;
+    margin: 0 16px;
+    box-shadow: none;
+}
+
+.custom-checkbox .custom-control-indicator:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: #f1f1f1;
+    border-radius: 21px;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.4);
+    left: -2px;
+    -webkit-transition: left .3s ease, background .3s ease, box-shadow .1s ease;
+    transition: left .3s ease, background .3s ease, box-shadow .1s ease;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-indicator {
+    background-color: var(--base-color);
+    background-image: none;
+    box-shadow: none !important;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-indicator:after {
+    background-color: var(--bs-white);
+    left: 15px;
+    z-index: 1;
+}
+
+.custom-checkbox .custom-control-input:focus~.custom-control-indicator {
+    box-shadow: none !important;
 }

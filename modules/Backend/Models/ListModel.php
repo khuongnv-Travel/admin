@@ -13,7 +13,6 @@ class ListModel extends Model
     protected $fillable = [
         'id',
         'listtype_id',
-        'listtype_code',
         'code',
         'name',
         'note',

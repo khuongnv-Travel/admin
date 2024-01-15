@@ -62,9 +62,9 @@ Library.prototype.alertMessage = function (type, label, message, s = 3000) {
         dismissible: true,
         positionDefaults: 'top-left'
     });
-    $(document).on('hidden.bs.toast', '.toast', function (e) {
-        $(this).remove();
-    });
+    // $(document).on('hidden.bs.toast', '.toast', function (e) {
+    //     $(this).remove();
+    // });
 }
 // Chuyển đổi dữ liệu
 Library.prototype.convertStr = function(str){
