@@ -4,22 +4,26 @@ namespace Modules\Backend\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AuthorModel extends Model
+class ApartmentModel extends Model
 {
-    protected $table = 'authors';
+    protected $table = 'apartments';
     public $incrementing = false;
 
     public $sortable = ['order'];
     protected $fillable = [
         'id',
+        'list_id',
+        'code',
         'name',
         'slug',
-        'birthday',
-        'phone',
-        'email',
+        'images',
+        'city',
+        'district',
+        'ward',
         'address',
-        'status',
+        'content',
         'order',
+        'status',
         'created_at',
         'updated_at',
     ];

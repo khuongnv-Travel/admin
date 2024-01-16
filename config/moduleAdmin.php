@@ -26,21 +26,40 @@ return [
             ],
         ],
     ],
-    'categories' => [
-        'name' => 'Quản trị chuyên mục',
-        'icon' => 'bx bx-menu',
+    'tours' => [
+        'name' => 'Quản trị tour',
+        'icon' => 'bx bxs-cable-car',
         'checkRole' => 'ADMIN',
         'child' => false,
     ],
-    'authors' => [
-        'name' => 'Quản trị tác giả',
-        'icon' => 'bx bxs-user-check',
+    'apartments' => [
+        'name' => 'Quản trị phòng',
+        'icon' => 'bx bxs-buildings',
+        'checkRole' => 'ADMIN',
+        'child' => [
+            'list' => [
+                'name' => 'Căn hộ',
+                'icon' => 'bx bx-chevrons-right',
+                'checkRole' => 'ADMIN',
+                'child' => false,
+            ],
+            'rooms' => [
+                'name' => 'Phòng',
+                'icon' => 'bx bx-chevrons-right',
+                'checkRole' => 'ADMIN',
+                'child' => false,
+            ],
+        ],
+    ],
+    'cars' => [
+        'name' => 'Quản trị xe',
+        'icon' => 'bx bxs-car',
         'checkRole' => 'ADMIN',
         'child' => false,
     ],
-    'blogs' => [
-        'name' => 'Quản trị bài viết',
-        'icon' => 'bx bx-news',
+    'flights' => [
+        'name' => 'Quản trị chuyến bay',
+        'icon' => 'bx bxs-plane-alt',
         'checkRole' => 'ADMIN',
         'child' => false,
     ],

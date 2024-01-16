@@ -4,29 +4,29 @@ namespace Modules\Backend\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\Backend\Services\AuthorService;
+use Modules\Backend\Services\RoomService;
 
-class AuthorController extends Controller
+class RoomController extends Controller
 {
-    private $authorService;
-    public function __construct(AuthorService $authorService)
+    private $roomService;
+    public function __construct(RoomService $roomService)
     {
-        $this->authorService = $authorService;
+        $this->roomService = $roomService;
     }
     /**
      * Trang Index
      */
     public function index()
     {
-        $data = $this->authorService->index();
-        return view('authors.index');
+        $data = $this->roomService->index();
+        return view('rooms.index');
     }
     /**
      * Danh sách
      */
     public function loadList(Request $request)
     {
-        $data = $this->authorService->loadList($request->all());
+        $data = $this->roomService->loadList($request->all());
         return $data;
     }
     /**
@@ -34,23 +34,23 @@ class AuthorController extends Controller
      */
     public function create(Request $request)
     {
-        $data = $this->authorService->create($request->all());
-        return view('authors.add', $data);
+        $data = $this->roomService->create($request->all());
+        return view('rooms.add', $data);
     }
     /**
      * Sửa
      */
     public function edit(Request $request)
     {
-        $data = $this->authorService->edit($request->all());
-        return view('authors.add', $data);
+        $data = $this->roomService->edit($request->all());
+        return view('rooms.add', $data);
     }
     /**
      * Cập nhật
      */
     public function update(Request $request)
     {
-        $data = $this->authorService->_update($request->all());
+        $data = $this->roomService->_update($request->all());
         return $data;
     }
     /**
@@ -58,7 +58,7 @@ class AuthorController extends Controller
      */
     public function delete(Request $request)
     {
-        $data = $this->authorService->_delete($request->all());
+        $data = $this->roomService->_delete($request->all());
         return $data;
     }
     /**
@@ -66,7 +66,7 @@ class AuthorController extends Controller
      */
     public function updateOrderTable(Request $request)
     {
-        $data = $this->authorService->updateOrderTable($request->all());
+        $data = $this->roomService->updateOrderTable($request->all());
         return $data;
     }
     /**
@@ -74,7 +74,7 @@ class AuthorController extends Controller
      */
     public function changeStatus(Request $request)
     {
-        $data = $this->authorService->changeStatus($request->all());
+        $data = $this->roomService->changeStatus($request->all());
         return $data;
     }
     /**
@@ -82,7 +82,7 @@ class AuthorController extends Controller
      */
     public function uploadFile(Request $request)
     {
-        $data = $this->authorService->uploadFile($request->all());
+        $data = $this->roomService->uploadFile($request->all());
         return $data;
     }
 }

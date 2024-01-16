@@ -1,17 +1,17 @@
-function JS_Listtype(baseUrl, module, action) {
+function JS_Apartment(baseUrl, module, action) {
     this.baseUrl = baseUrl;
     this.module = module;
     this.action = action;
     this.urlPath = baseUrl + '/' + module + (action != '' && action != undefined ? '/' + action : '');
-    this.currentPage = 1
+    this.currentPage = 1;
     this.perPage = 15;
-    this.oFormIndex = '#frmListtype_index';
-    this.oFormAdd = '#frmListtype_add';
+    this.oFormIndex = '#frmApartments_index';
+    this.oFormAdd = '#frmApartments_add';
 }
 /**
  * Sự kiện xảy ra
  */
-JS_Listtype.prototype.loadIndex = function () {
+JS_Apartment.prototype.loadIndex = function () {
     var myClass = this;
     $('.chzn-select').chosen({ height: '100%', width: '100%', search_contains: true });
     myClass.loadList();
@@ -34,7 +34,7 @@ JS_Listtype.prototype.loadIndex = function () {
 /**
  * Danh sách
  */
-JS_Listtype.prototype.loadList = function (currentPage = 1, perPage = 15) {
+JS_Apartment.prototype.loadList = function (currentPage = 1, perPage = 15) {
     var myClass = this;
     myClass.currentPage = currentPage;
     myClass.perPage = perPage;
@@ -73,7 +73,7 @@ JS_Listtype.prototype.loadList = function (currentPage = 1, perPage = 15) {
 /**
  * Form thêm mới
  */
-JS_Listtype.prototype.create = function () {
+JS_Apartment.prototype.create = function () {
     var myClass = this;
     var url = myClass.urlPath + '/create';
     var data = {
@@ -105,7 +105,7 @@ JS_Listtype.prototype.create = function () {
 /**
  * Form sửa
  */
-JS_Listtype.prototype.edit = function (id) {
+JS_Apartment.prototype.edit = function (id) {
     var myClass = this;
     var url = myClass.urlPath + '/edit';
     var listId = '';
@@ -154,16 +154,22 @@ JS_Listtype.prototype.edit = function (id) {
  * Lưu thông tin
  * @return string
  */
-JS_Listtype.prototype.update = function (type = false) {
+JS_Apartment.prototype.update = function (type = false) {
     var myClass = this;
     var url = myClass.urlPath + '/update';
     var order = $("#order").val();
-    var data = $(myClass.oFormAdd).serialize();
+    var data = new FormData;
+    data.append('_token', $("#_token").val());
+    data.append('dataUpdate', $(myClass.oFormAdd).serialize());
+    data.append('files', $("#images")[0].files[0]);
     Library.showloadding();
     $.ajax({
         url: url,
         type: 'POST',
         data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
         success: function (arrResult) {
             Library.hideloadding();
             if (arrResult['success'] == true) {
@@ -187,7 +193,7 @@ JS_Listtype.prototype.update = function (type = false) {
 /**
  * Xóa thông tin
  */
-JS_Listtype.prototype.delete = function () {
+JS_Apartment.prototype.delete = function () {
     var myClass = this;
     var listId = '';
     var chk_item_id = $('#table-data').find('input[name="chk_item_id"]');
@@ -247,7 +253,7 @@ JS_Listtype.prototype.delete = function () {
 /**
  * Cập nhật lại toàn bộ STT
  */
-JS_Listtype.prototype.updateOrderTable = function () {
+JS_Apartment.prototype.updateOrderTable = function () {
     var myClass = this;
     $.confirm({
         title: 'Thông báo',
@@ -292,7 +298,7 @@ JS_Listtype.prototype.updateOrderTable = function () {
 /**
  * Thay đổi trạng thái
  */
-JS_Listtype.prototype.changeStatus = function (id) {
+JS_Apartment.prototype.changeStatus = function (id) {
     var myClass = this;
     var url = myClass.urlPath + '/changeStatus';
     var data = {
@@ -319,8 +325,22 @@ JS_Listtype.prototype.changeStatus = function (id) {
     });
 }
 /**
+ * Hiển thị hình ảnh
+ */
+JS_Apartment.prototype.showImage = function (_this) {
+    var reader = new FileReader();
+    var img = document.createElement("img");
+    reader.readAsDataURL($(_this)[0].files[0]);
+    reader.onload = function () {
+        var dataURL = reader.result;
+        img.src = dataURL;
+        img.style = 'width: 100%;';
+    };
+    $("#feature_img").html(img);
+}
+/**
  * Tìm kiếm
  */
-JS_Listtype.prototype.search = function () {
-    JS_Listtype.loadList(JS_Listtype.currentPage, JS_Listtype.perPage);
+JS_Apartment.prototype.search = function () {
+    JS_Apartment.loadList(JS_Apartment.currentPage, JS_Apartment.perPage);
 }

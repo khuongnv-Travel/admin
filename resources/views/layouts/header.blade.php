@@ -1,752 +1,203 @@
-<header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
-        <div class="navbar-nav-wrap">
-            <a class="navbar-brand" href="index.html" aria-label="Front">
-                <img class="navbar-brand-logo" src="{{ URL::asset('dist/images/logo.png') }}" alt="Logo" data-hs-theme-appearance="default" style="width: 2.75rem;">
-            </a>
-            <div class="navbar-nav-wrap-content-start">
-                <div class="dropdown ms-7">
-                    <div class="d-none d-lg-block">
-                        <div class="input-group input-group-merge input-group-borderless input-group-hover-light navbar-input-group">
-                            <div class="input-group-prepend input-group-text">
-                                <i class="bx bx-search"></i>
-                            </div>
-                            <input type="search" class="js-form-search form-control" placeholder="Search in front" aria-label="Search in front">
-                            <a class="input-group-append input-group-text" href="javascript:;">
-                                <i id="clearSearchResultsIcon" class="bx bx-x" style="display: none;"></i>
-                            </a>
-                        </div>
-                    </div>
+<header id="page-topbar">
+    <div class="navbar-header">
+        <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box text-center">
+                <a href="#" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="images/logo-sm.png" alt="logo-sm-dark" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/logo-dark.png" alt="logo-dark" height="24">
+                    </span>
+                </a>
 
-                    <button class="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none" type="button">
-                        <i class="bx bx-search"></i>
-                    </button>
-                    <div id="searchDropdownMenu" class="hs-form-search-menu-content dropdown-menu dropdown-menu-form-search navbar-dropdown-menu-borderless">
-                        <div class="card">
-                            <div class="card-body-height">
-                                <div class="d-lg-none">
-                                    <div class="input-group input-group-merge navbar-input-group mb-5">
-                                        <div class="input-group-prepend input-group-text">
-                                            <i class="bx bx-search"></i>
-                                        </div>
-                                        <input type="search" class="form-control" placeholder="Search in front" aria-label="Search in front">
-                                        <a class="input-group-append input-group-text" href="javascript:;">
-                                            <i class="bx bx-x"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <span class="dropdown-header">Recent searches</span>
-                                <div class="dropdown-item bg-transparent text-wrap">
-                                    <a class="btn btn-soft-dark btn-xs rounded-pill" href="index.html">
-                                        Gulp <i class="bx bx-search ms-1"></i>
-                                    </a>
-                                    <a class="btn btn-soft-dark btn-xs rounded-pill" href="index.html">
-                                        Notification panel <i class="bx bx-search ms-1"></i>
-                                    </a>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <span class="dropdown-header">Tutorials</span>
-                                <a class="dropdown-item" href="index.html">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <span class="icon icon-soft-dark icon-xs icon-circle">
-                                                <i class='bx bx-slider-alt'></i>
-                                            </span>
-                                        </div>
-                                        <div class="flex-grow-1 text-truncate ms-2">
-                                            <span>How to set up Gulp?</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item" href="index.html">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <span class="icon icon-soft-dark icon-xs icon-circle">
-                                                <i class='bx bx-palette'></i>
-                                            </span>
-                                        </div>
-
-                                        <div class="flex-grow-1 text-truncate ms-2">
-                                            <span>How to change theme color?</span>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <span class="dropdown-header">Members</span>
-
-                                <a class="dropdown-item" href="index.html">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img class="avatar avatar-xs avatar-circle" src="" alt="Image Description">
-                                        </div>
-                                        <div class="flex-grow-1 text-truncate ms-2">
-                                            <span>Amanda Harvey <i class="tio-verified text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></span>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a class="dropdown-item" href="index.html">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <img class="avatar avatar-xs avatar-circle" src="" alt="Image Description">
-                                        </div>
-                                        <div class="flex-grow-1 text-truncate ms-2">
-                                            <span>David Harrison</span>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a class="dropdown-item" href="index.html">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar avatar-xs avatar-soft-info avatar-circle">
-                                                <span class="avatar-initials">A</span>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 text-truncate ms-2">
-                                            <span>Anne Richard</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- End Body -->
-
-                            <!-- Footer -->
-                            <a class="card-footer text-center" href="index.html">
-                                See all results <i class='bx bx-chevron-right'></i>
-                            </a>
-                            <!-- End Footer -->
-                        </div>
-                    </div>
-                    <!-- End Card Search Content -->
-
-                </div>
-
-                <!-- End Search Form -->
+                <a href="#" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="images/logo-sm.png" alt="logo" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="images/logo-light.png" alt="logo" height="24">
+                    </span>
+                </a>
             </div>
 
-            <div class="navbar-nav-wrap-content-end">
-                <!-- Navbar -->
-                <ul class="navbar-nav">
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <!-- Notification -->
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="navbarNotificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
-                                <i class="bx bx-bell"></i>
-                                <span class="btn-status btn-sm-status btn-status-danger"></span>
-                            </button>
+            <button type="button" class="btn btn-sm px-3 font-size-24 header-item" id="vertical-menu-btn">
+                <i class='bx bx-menu align-middle'></i>
+            </button>
 
-                            <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdown" style="width: 25rem;">
-                                <div class="card">
-                                    <!-- Header -->
-                                    <div class="card-header card-header-content-between">
-                                        <h4 class="card-title mb-0">Notifications</h4>
+            <!-- App Search-->
+            <form class="app-search d-none d-lg-block">
+                <div class="position-relative">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="bx bx-search-alt-2"></span>
+                </div>
+            </form>
+        </div>
 
-                                        <!-- Unfold -->
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" id="navbarNotificationsDropdownSettings" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class='bx bx-dots-vertical-rounded'></i>
-                                            </button>
+        <div class="d-flex">
 
-                                            <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdownSettings">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bx bxs-box dropdown-item-icon"></i> Archive all
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bx bx-check-double dropdown-item-icon"></i> Mark all as read
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bx bxs-toggle-left dropdown-item-icon"></i> Disable notifications
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bx bx-gift dropdown-item-icon"></i> What's new?
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <span class="dropdown-header">Feedback</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bx bx-message-dots dropdown-item-icon"></i> Report
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- End Unfold -->
-                                    </div>
-                                    <!-- End Header -->
+            <div class="dropdown d-inline-block d-lg-none ms-2">
+                <button type="button" class="btn header-item noti-icon" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bx bx-search-alt-2"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
 
-                                    <!-- Nav -->
-                                    <ul class="nav nav-tabs nav-justified" id="notificationTab" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#notificationNavOne" id="notificationNavOne-tab" data-bs-toggle="tab" data-bs-target="#notificationNavOne" role="tab" aria-controls="notificationNavOne" aria-selected="true">Messages (3)</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#notificationNavTwo" id="notificationNavTwo-tab" data-bs-toggle="tab" data-bs-target="#notificationNavTwo" role="tab" aria-controls="notificationNavTwo" aria-selected="false">Archived</a>
-                                        </li>
-                                    </ul>
-                                    <!-- End Nav -->
-
-                                    <!-- Body -->
-                                    <div class="card-body-height">
-                                        <!-- Tab Content -->
-                                        <div class="tab-content" id="notificationTabContent">
-                                            <div class="tab-pane fade show active" id="notificationNavOne" role="tabpanel" aria-labelledby="notificationNavOne-tab">
-                                                <!-- List Group -->
-                                                <ul class="list-group list-group-flush navbar-card-list-group">
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck1" checked>
-                                                                        <label class="form-check-label" for="notificationCheck1"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <img class="avatar avatar-sm avatar-circle" src="" alt="Image Description">
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Brian Warner</h5>
-                                                                <p class="text-body fs-5">changed an issue from "In Progress" to <span class="badge bg-success">Review</span></p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">2hr</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck2" checked>
-                                                                        <label class="form-check-label" for="notificationCheck2"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                                                                        <span class="avatar-initials">K</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Klara Hampton</h5>
-                                                                <p class="text-body fs-5">mentioned you in a comment</p>
-                                                                <blockquote class="blockquote blockquote-sm">
-                                                                    Nice work, love! You really nailed it. Keep it up!
-                                                                </blockquote>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">10hr</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck3" checked>
-                                                                        <label class="form-check-label" for="notificationCheck3"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-circle">
-                                                                        <img class="avatar-img" src="{{ URL::asset('dist/images/user_default.png') }}" alt="Image Description">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Ruby Walter</h5>
-                                                                <p class="text-body fs-5">joined the Slack group HS Team</p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">3dy</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck4">
-                                                                        <label class="form-check-label" for="notificationCheck4"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-circle">
-                                                                        <img class="avatar-img" src="{{ URL::asset('dist/images/user_default.png') }}" alt="Image Description">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">from Google</h5>
-                                                                <p class="text-body fs-5">Start using forms to capture the information of prospects visiting your Google website</p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">17dy</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck5">
-                                                                        <label class="form-check-label" for="notificationCheck5"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-circle">
-                                                                        <img class="avatar-img" src="{{ URL::asset('dist/images/user_default.png') }}" alt="Image Description">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Sara Villar</h5>
-                                                                <p class="text-body fs-5">completed <i class="bx bx-bookmarks text-primary"></i> FD-7 task</p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">2mn</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-                                                </ul>
-                                                <!-- End List Group -->
-                                            </div>
-
-                                            <div class="tab-pane fade" id="notificationNavTwo" role="tabpanel" aria-labelledby="notificationNavTwo-tab">
-                                                <!-- List Group -->
-                                                <ul class="list-group list-group-flush navbar-card-list-group">
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck6">
-                                                                        <label class="form-check-label" for="notificationCheck6"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                                                                        <span class="avatar-initials">A</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Anne Richard</h5>
-                                                                <p class="text-body fs-5">accepted your invitation to join Notion</p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">1dy</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck7">
-                                                                        <label class="form-check-label" for="notificationCheck7"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-circle">
-                                                                        <img class="avatar-img" src="{{ URL::asset('dist/images/user_default.png') }}" alt="Image Description">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Finch Hoot</h5>
-                                                                <p class="text-body fs-5">left Slack group HS projects</p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">1dy</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck8">
-                                                                        <label class="form-check-label" for="notificationCheck8"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-dark avatar-circle">
-                                                                        <span class="avatar-initials">HS</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Htmlstream</h5>
-                                                                <p class="text-body fs-5">you earned a "Top endorsed" <i class="bx bxs-badge-check text-primary"></i> badge</p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">6dy</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck9">
-                                                                        <label class="form-check-label" for="notificationCheck9"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-circle">
-                                                                        <img class="avatar-img" src="{{ URL::asset('dist/images/user_default.png') }}" alt="Image Description">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Linda Bates</h5>
-                                                                <p class="text-body fs-5">Accepted your connection</p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">17dy</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-
-                                                    <!-- Item -->
-                                                    <li class="list-group-item form-check-select">
-                                                        <div class="row">
-                                                            <div class="col-auto">
-                                                                <div class="d-flex align-items-center">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck10">
-                                                                        <label class="form-check-label" for="notificationCheck10"></label>
-                                                                        <span class="form-check-stretched-bg"></span>
-                                                                    </div>
-                                                                    <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                                                                        <span class="avatar-initials">L</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <div class="col ms-n2">
-                                                                <h5 class="mb-1">Lewis Clarke</h5>
-                                                                <p class="text-body fs-5">completed <i class="bx bx-bookmarks text-primary"></i> FD-134 task</p>
-                                                            </div>
-                                                            <!-- End Col -->
-
-                                                            <small class="col-auto text-muted text-cap">2mts</small>
-                                                            <!-- End Col -->
-                                                        </div>
-                                                        <!-- End Row -->
-
-                                                        <a class="stretched-link" href="#"></a>
-                                                    </li>
-                                                    <!-- End Item -->
-                                                </ul>
-                                                <!-- End List Group -->
-                                            </div>
-                                        </div>
-                                        <!-- End Tab Content -->
-                                    </div>
-                                    <!-- End Body -->
-
-                                    <!-- Card Footer -->
-                                    <a class="card-footer text-center" href="#">
-                                        View all notifications <i class="bx bx-chevron-right"></i>
-                                    </a>
-                                    <!-- End Card Footer -->
+                    <form class="p-3">
+                        <div class="mb-3 m-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search ...">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit"><i class="bx bx-search-alt-2"></i></button>
                                 </div>
                             </div>
                         </div>
-                        <!-- End Notification -->
-                    </li>
+                    </form>
+                </div>
+            </div>
 
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <!-- Apps -->
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-icon btn-ghost-secondary rounded-circle" id="navbarAppsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
-                                <i class='bx bxl-dropbox'></i>
-                            </button>
+            <div class="dropdown d-none d-sm-inline-block">
+                <button type="button" class="btn header-item" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="" src="images/us.jpg" alt="Header Language" height="16">
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
 
-                            <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarAppsDropdown" style="width: 25rem;">
-                                <div class="card">
-                                    <!-- Header -->
-                                    <div class="card-header">
-                                        <h4 class="card-title">Web apps &amp; services</h4>
-                                    </div>
-                                    <!-- End Header -->
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <img src="images/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                    </a>
 
-                                    <!-- Body -->
-                                    <div class="card-body card-body-height">
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0">
-                                                    <img class="avatar avatar-xs avatar-4x3" src="" alt="Image Description">
-                                                </div>
-                                                <div class="flex-grow-1 text-truncate ms-3">
-                                                    <h5 class="mb-0">Atlassian</h5>
-                                                    <p class="card-text text-body">Security and control across Cloud</p>
-                                                </div>
-                                            </div>
-                                        </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <img src="images/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                    </a>
 
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0">
-                                                    <img class="avatar avatar-xs avatar-4x3" src="" alt="Image Description">
-                                                </div>
-                                                <div class="flex-grow-1 text-truncate ms-3">
-                                                    <h5 class="mb-0">Slack <span class="badge bg-primary rounded-pill text-uppercase ms-1">Try</span></h5>
-                                                    <p class="card-text text-body">Email collaboration software</p>
-                                                </div>
-                                            </div>
-                                        </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <img src="images/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                    </a>
 
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0">
-                                                    <img class="avatar avatar-xs avatar-4x3" src="" alt="Image Description">
-                                                </div>
-                                                <div class="flex-grow-1 text-truncate ms-3">
-                                                    <h5 class="mb-0">Google webdev</h5>
-                                                    <p class="card-text text-body">Work involved in developing a website</p>
-                                                </div>
-                                            </div>
-                                        </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <img src="images/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                    </a>
+                </div>
+            </div>
 
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0">
-                                                    <img class="avatar avatar-xs avatar-4x3" src="" alt="Image Description">
-                                                </div>
-                                                <div class="flex-grow-1 text-truncate ms-3">
-                                                    <h5 class="mb-0">Frontapp</h5>
-                                                    <p class="card-text text-body">The inbox for teams</p>
-                                                </div>
-                                            </div>
-                                        </a>
+            <div class="dropdown d-none d-lg-inline-block ms-1">
+                <button type="button" class="btn header-item noti-icon" data-toggle="fullscreen">
+                    <i class='bx bx-fullscreen'></i>
+                </button>
+            </div>
 
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0">
-                                                    <img class="avatar avatar-xs avatar-4x3" src="" alt="Image Description">
-                                                </div>
-                                                <div class="flex-grow-1 text-truncate ms-3">
-                                                    <h5 class="mb-0">HS Support</h5>
-                                                    <p class="card-text text-body">Customer service and support</p>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0">
-                                                    <div class="avatar avatar-sm avatar-soft-dark">
-                                                        <span class="avatar-initials"><i class='bx bxs-grid'></i></span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1 text-truncate ms-3">
-                                                    <h5 class="mb-0">More Front products</h5>
-                                                    <p class="card-text text-body">Check out more HS products</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <!-- End Body -->
-
-                                    <!-- Footer -->
-                                    <a class="card-footer text-center" href="#">
-                                        View all apps <i class="bx bx-chevron-right"></i>
-                                    </a>
-                                    <!-- End Footer -->
-                                </div>
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item noti-icon" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class='bx bx-bell'></i>
+                    <span class="noti-dot"></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                    <div class="p-3">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="m-0"> Notifications </h6>
+                            </div>
+                            <div class="col-auto">
+                                <a href="#!" class="small"> View All</a>
                             </div>
                         </div>
-                        <!-- End Apps -->
-                    </li>
-
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <!-- Activity -->
-                        <button class="btn btn-ghost-secondary btn-icon rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasActivityStream" aria-controls="offcanvasActivityStream">
-                            <i class='bx bx-atom'></i>
-                        </button>
-                        <!-- Activity -->
-                    </li>
-
-                    <li class="nav-item">
-                        <!-- Account -->
-                        <div class="dropdown">
-                            <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
-                                <div class="avatar avatar-sm avatar-circle">
-                                    <img class="avatar-img" src="{{ URL::asset('dist/images/user_default.png') }}" alt="Image Description">
-                                    <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                    </div>
+                    <div data-simplebar="" style="max-height: 230px;">
+                        <a href="" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="avatar-xs">
+                                        <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                            <i class='bx bxs-cart'></i>
+                                        </span>
+                                    </div>
                                 </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">Your order is placed</h6>
+                                    <div class="font-size-12 text-muted">
+                                        <p class="mb-1">If several languages coalesce the grammar</p>
+                                        <p class="mb-0"><i class="bx bx-clock-outline"></i> 3 min ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <img src="images/avatar-3.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">James Lemire</h6>
+                                    <div class="font-size-12 text-muted">
+                                        <p class="mb-1">It will seem like simplified English.</p>
+                                        <p class="mb-0"><i class="bx bx-clock-outline"></i> 1 hours ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="avatar-xs">
+                                        <span class="avatar-title bg-success rounded-circle font-size-16">
+                                            <i class='bx bx-check-circle'></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">Your item is shipped</h6>
+                                    <div class="font-size-12 text-muted">
+                                        <p class="mb-1">If several languages coalesce the grammar</p>
+                                        <p class="mb-0"><i class="bx bx-clock-outline"></i> 3 min ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <img src="images/avatar-4.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">Salena Layfield</h6>
+                                    <div class="font-size-12 text-muted">
+                                        <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
+                                        <p class="mb-0"><i class="bx bx-clock-outline"></i> 1 hours ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="p-2 border-top">
+                        <div class="d-grid">
+                            <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                                <i class="bx bx-arrow-right-circle me-1"></i> View More..
                             </a>
-
-                            <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-account pt-0" aria-labelledby="accountNavbarDropdown" style="width: 16rem;">
-                                <div class="dropdown-item-text">
-                                    <div class="d-flex align-items-center">
-                                        <div class="avatar avatar-sm avatar-circle">
-                                            <img class="avatar-img" src="{{ URL::asset('dist/images/user_default.png') }}" alt="Image Description">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h5 class="mb-0">Mark Williams</h5>
-                                            <p class="card-text text-body">mark@site.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="dropdown-divider"></div>
-
-                                <!-- Dropdown -->
-                                <div class="dropdown">
-                                    <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;" id="navSubmenuPagesAccountDropdown1" data-bs-toggle="dropdown" aria-expanded="false">Set status</a>
-
-                                    <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu" aria-labelledby="navSubmenuPagesAccountDropdown1">
-                                        <a class="dropdown-item" href="#">
-                                            <span class="legend-indicator bg-success me-1"></span> Available
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                            <span class="legend-indicator bg-danger me-1"></span> Busy
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                            <span class="legend-indicator bg-warning me-1"></span> Away
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#"> Reset status
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- End Dropdown -->
-
-                                <a class="dropdown-item" href="#">Profile &amp; account</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <a class="dropdown-item" href="#">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar avatar-sm avatar-dark avatar-circle">
-                                                <span class="avatar-initials">HS</span>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-2">
-                                            <h5 class="mb-0">Htmlstream <span class="badge bg-primary rounded-pill text-uppercase ms-1">PRO</span></h5>
-                                            <span class="card-text">hs.example.com</span>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <!-- Dropdown -->
-                                <div class="dropdown">
-                                    <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;" id="navSubmenuPagesAccountDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Customization</a>
-
-                                    <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu" aria-labelledby="navSubmenuPagesAccountDropdown2">
-                                        <a class="dropdown-item" href="#">
-                                            Invite people
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                            Analytics
-                                            <i class='bx bx-right-top-arrow-circle'></i>
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                            Customize Front
-                                            <i class='bx bx-right-top-arrow-circle'></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- End Dropdown -->
-
-                                <a class="dropdown-item" href="#">Manage team</a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <a class="dropdown-item" href="#">Sign out</a>
-                            </div>
                         </div>
-                        <!-- End Account -->
-                    </li>
-                </ul>
-                <!-- End Navbar -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown d-inline-block user-dropdown">
+                <button type="button" class="btn header-item" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle header-profile-user" src="images/avatar-2.jpg" alt="Header Avatar">
+                    <span class="d-none d-xl-inline-block ms-1">Kevin</span>
+                    <i class="bx bx-chevron-down d-none d-xl-inline-block"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#"><i class="bx bx-user align-middle me-1"></i> Profile</a>
+                    <a class="dropdown-item" href="#"><i class="bx bx-wallet-alt align-middle me-1"></i> My Wallet</a>
+                    <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="bx bx-cog align-middle me-1"></i> Settings</a>
+                    <a class="dropdown-item" href="#"><i class="bx bx-lock-open align-middle me-1"></i> Lock screen</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off align-middle me-1 text-danger"></i> Logout</a>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>

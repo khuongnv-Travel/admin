@@ -33,6 +33,10 @@ mix.scripts([
     'resources/js/chosen/chosen.min.js',
     'resources/js/Library.js',
     'resources/js/main.min.js',
+], 'public/assets/js/app.min.js');
+
+mix.scripts([
     'resources/js/pages/JS_Listtype.js',
     'resources/js/pages/JS_List.js',
-], 'public/assets/js/app.min.js');
+    'resources/js/pages/JS_Apartment.js',
+], 'public/assets/js/pages.min.js');

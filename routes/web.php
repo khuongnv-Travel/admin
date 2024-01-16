@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Backend\Controllers\ApartmentController;
 use Modules\Backend\Controllers\DashboardController;
 use Modules\Backend\Controllers\ListController;
 use Modules\Backend\Controllers\ListtypeController;
+use Modules\Backend\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,7 @@ Route::prefix('/')->group(function(){
         Route::get('', [DashboardController::class, 'index']);
         Route::get('dashboard', [DashboardController::class, 'index']);
     });
+    // Danh mục
     Route::prefix('listtype')->group(function(){
         Route::prefix('listtype')->group(function(){
             Route::get('', [ListtypeController::class, 'index']);
@@ -35,6 +38,29 @@ Route::prefix('/')->group(function(){
         });
         Route::prefix('list')->group(function(){
             Route::get('', [ListController::class, 'index']);
+            Route::post('loadList', [ListController::class, 'loadList']);
+            Route::post('create', [ListController::class, 'create']);
+            Route::post('edit', [ListController::class, 'edit']);
+            Route::post('update', [ListController::class, 'update']);
+            Route::post('delete', [ListController::class, 'delete']);
+            Route::post('changeStatus', [ListController::class, 'changeStatus']);
+            Route::post('updateOrderTable', [ListController::class, 'updateOrderTable']);
+        });
+    });
+    // Căn hộ
+    Route::prefix('apartments')->group(function(){
+        Route::prefix('list')->group(function(){
+            Route::get('', [ApartmentController::class, 'index']);
+            Route::post('loadList', [ApartmentController::class, 'loadList']);
+            Route::post('create', [ApartmentController::class, 'create']);
+            Route::post('edit', [ApartmentController::class, 'edit']);
+            Route::post('update', [ApartmentController::class, 'update']);
+            Route::post('delete', [ApartmentController::class, 'delete']);
+            Route::post('changeStatus', [ApartmentController::class, 'changeStatus']);
+            Route::post('updateOrderTable', [ApartmentController::class, 'updateOrderTable']);
+        });
+        Route::prefix('rooms')->group(function(){
+            Route::get('', [RoomController::class, 'index']);
             Route::post('loadList', [ListController::class, 'loadList']);
             Route::post('create', [ListController::class, 'create']);
             Route::post('edit', [ListController::class, 'edit']);

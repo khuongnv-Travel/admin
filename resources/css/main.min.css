@@ -191,8 +191,8 @@
     border-color: #eff2f7
 }
 
-.fullscreen-enable [data-toggle=fullscreen] .ri-fullscreen-line:before {
-    content: "\ed73"
+.fullscreen-enable [data-toggle=fullscreen] .bx-fullscreen:before {
+    content: "\eacb"
 }
 
 body[data-topbar=dark] #page-topbar {

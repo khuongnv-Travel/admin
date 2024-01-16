@@ -2,32 +2,30 @@
 
 namespace Modules\Backend\Services;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Modules\Backend\Repositories\AuthorRepository;
+use Modules\Backend\Repositories\ApartmentRepository;
 use Modules\Core\BaseService;
 use Modules\Core\Helpers\LoggerHelpers;
 
-class AuthorService extends BaseService
+class ApartmentService extends BaseService
 {
-    private $categoriesService;
     private $validateService;
     private $fileService;
     private $logger;
     public function __construct(
-        CategoriesService $categoriesService,
         ValidateService $validateService,
         FileService $fileService
     ){
-        $this->categoriesService = $categoriesService;
         $this->validateService   = $validateService;
         $this->fileService       = $fileService;
         $this->logger = new LoggerHelpers;
-        $this->logger->setFileName('AuthorService');
+        $this->logger->setFileName('ApartmentService');
         parent::__construct();
     }
     public function repository()
     {
-        return AuthorRepository::class;
+        return ApartmentRepository::class;
     }
     /**
      * Trang Index
@@ -47,7 +45,7 @@ class AuthorService extends BaseService
         $input['sort'] = 'order';
         $data['datas'] = $this->repository->filter($input);
         return array(
-            'arrData' => view('authors.loadList', $data)->render(),
+            'arrData' => view('apartments.loadList', $data)->render(),
             'perPage' => $input['limit'],
         );;
     }
@@ -58,8 +56,8 @@ class AuthorService extends BaseService
      */
     public function create($input): array
     {
-        $authors = $this->repository->select('order')->orderBy('order', 'desc')->first();
-        $data['order'] = isset($authors->order) ? (int)$authors->order + 1 : 1;
+        $rooms = $this->repository->select('order')->orderBy('order', 'desc')->first();
+        $data['order'] = isset($rooms->order) ? (int)$rooms->order + 1 : 1;
         return $data;
     }
     /**
@@ -88,12 +86,13 @@ class AuthorService extends BaseService
             return array('success' => false, 'message' => $validator->errors()->get('dataUpdate')[0]);
         }
         parse_str($input['dataUpdate'], $params);
-        $check = $this->validateService->validate($params, 'tác giả');
-        if ($check['status'] === false) {
-            foreach ($check['message'] as $key => $message) {
-                return array('success' => false, 'message' => $message, 'key' => $key);
-            }
-        }
+        // $check = $this->validateService->validate($params, 'tác giả');
+        // if ($check['status'] === false) {
+        //     foreach ($check['message'] as $key => $message) {
+        //         return array('success' => false, 'message' => $message, 'key' => $key);
+        //     }
+        // }
+        DB::beginTransaction();
         try {
             $this->logger->setChannel('Update')->log('Params', $input);
             if($_FILES != []){
@@ -101,8 +100,10 @@ class AuthorService extends BaseService
                 $params['avatar'] = $avatar[0]['url'];
             }
             $data = $this->repository->_update($params);
+            DB::commit();
             return array('success' => true, 'message' => 'Cập nhật thành công', 'data' => $data);
         } catch (\Exception $e) {
+            DB::rollBack();
             $this->logger->setChannel('Update')->log('Messages', ['Line:' => $e->getLine(), 'Message:' => $e->getMessage(), 'FileName:' => $e->getFile()]);
             return array('success' => false, 'message' => $e->getMessage());
         }

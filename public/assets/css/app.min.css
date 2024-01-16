@@ -3550,6 +3550,18 @@ fieldset:disabled .btn {
     opacity: .65
 }
 
+.btn-default {
+    color: #000;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-default:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #0bb197;
@@ -14358,7 +14370,6 @@ a {
 }
 
 label {
-    font-weight: 600;
     margin-bottom: .5rem
 }
 
@@ -15559,8 +15570,8 @@ button {
     border-color: #eff2f7
 }
 
-.fullscreen-enable [data-toggle=fullscreen] .ri-fullscreen-line:before {
-    content: "\ed73"
+.fullscreen-enable [data-toggle=fullscreen] .bx-fullscreen:before {
+    content: "\eacb"
 }
 
 body[data-topbar=dark] #page-topbar {

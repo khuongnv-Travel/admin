@@ -2,10 +2,10 @@
 
 namespace Modules\Backend\Repositories;
 
-use Modules\Backend\Models\AuthorModel;
+use Modules\Backend\Models\ApartmentModel;
 use Modules\Core\BaseRepository;
 
-class AuthorRepository extends BaseRepository
+class ApartmentRepository extends BaseRepository
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class AuthorRepository extends BaseRepository
     }
     public function model()
     {
-        return AuthorModel::class;
+        return ApartmentModel::class;
     }
     /**
      * Lưu thông tin

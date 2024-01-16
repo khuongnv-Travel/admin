@@ -3550,6 +3550,18 @@ fieldset:disabled .btn {
     opacity: .65
 }
 
+.btn-default {
+    color: #000;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-default:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #0bb197;
@@ -14358,7 +14370,6 @@ a {
 }
 
 label {
-    font-weight: 600;
     margin-bottom: .5rem
 }
 
