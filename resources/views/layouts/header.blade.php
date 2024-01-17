@@ -3,21 +3,12 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box text-center">
-                <a href="#" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <img src="images/logo-sm.png" alt="logo-sm-dark" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="images/logo-dark.png" alt="logo-dark" height="24">
-                    </span>
-                </a>
-
                 <a href="#" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="images/logo-sm.png" alt="logo" height="22">
+                        <img src="" alt="logo" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="images/logo-light.png" alt="logo" height="24">
+                        <img src="" alt="logo" height="24">
                     </span>
                 </a>
             </div>
@@ -58,28 +49,28 @@
 
             <div class="dropdown d-none d-sm-inline-block">
                 <button type="button" class="btn header-item" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="" src="images/us.jpg" alt="Header Language" height="16">
+                    <img class="" src="" alt="Header Language" height="16">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="images/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                        <span class="align-middle">Spanish</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="images/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                        <span class="align-middle">German</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="images/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                        <span class="align-middle">Italian</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="images/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                        <span class="align-middle">Russian</span>
                     </a>
                 </div>
             </div>
@@ -128,20 +119,6 @@
                         <a href="" class="text-reset notification-item">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
-                                    <img src="images/avatar-3.jpg" class="rounded-circle avatar-xs" alt="user-pic">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-1">James Lemire</h6>
-                                    <div class="font-size-12 text-muted">
-                                        <p class="mb-1">It will seem like simplified English.</p>
-                                        <p class="mb-0"><i class="bx bx-clock-outline"></i> 1 hours ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" class="text-reset notification-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 me-3">
                                     <div class="avatar-xs">
                                         <span class="avatar-title bg-success rounded-circle font-size-16">
                                             <i class='bx bx-check-circle'></i>
@@ -153,21 +130,6 @@
                                     <div class="font-size-12 text-muted">
                                         <p class="mb-1">If several languages coalesce the grammar</p>
                                         <p class="mb-0"><i class="bx bx-clock-outline"></i> 3 min ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="" class="text-reset notification-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 me-3">
-                                    <img src="images/avatar-4.jpg" class="rounded-circle avatar-xs" alt="user-pic">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-1">Salena Layfield</h6>
-                                    <div class="font-size-12 text-muted">
-                                        <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
-                                        <p class="mb-0"><i class="bx bx-clock-outline"></i> 1 hours ago</p>
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +147,7 @@
 
             <div class="dropdown d-inline-block user-dropdown">
                 <button type="button" class="btn header-item" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="images/avatar-2.jpg" alt="Header Avatar">
+                    <img class="rounded-circle header-profile-user" src="" alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1">Kevin</span>
                     <i class="bx bx-chevron-down d-none d-xl-inline-block"></i>
                 </button>

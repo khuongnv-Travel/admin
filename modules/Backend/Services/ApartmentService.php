@@ -4,6 +4,7 @@ namespace Modules\Backend\Services;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Modules\Backend\Helpers\XmlHelper;
 use Modules\Backend\Repositories\ApartmentRepository;
 use Modules\Core\BaseService;
 use Modules\Core\Helpers\LoggerHelpers;
@@ -56,6 +57,11 @@ class ApartmentService extends BaseService
      */
     public function create($input): array
     {
+        $xmlHelper = new XmlHelper;
+        $base_path = base_path() . '\public\xml\apartments.xml';
+        $datas = array();
+        $data['htmls'] = $xmlHelper->xmlGenerateFormfield($base_path, $datas);
+
         $rooms = $this->repository->select('order')->orderBy('order', 'desc')->first();
         $data['order'] = isset($rooms->order) ? (int)$rooms->order + 1 : 1;
         return $data;

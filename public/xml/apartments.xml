@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <update_object>
+        <table_structure>
+            <row_list>
+                <row>
+
+                </row>
+            </row_list>
+        </table_structure>
+        <formfield_list>
+            <name>
+                <label>Tên căn hộ</label>
+                <type>text</type>
+                <required>true</required>
+                <xml_data>true</xml_data>
+                <xml_tag_in_db>false</xml_tag_in_db>
+                <column_name>name</column_name>
+                <width>100%</width>
+                <class_input>form-control</class_input>
+                <placeholder>Nhập tên căn hộ</placeholder>
+                <object></object> <!-- trường đặc biệt -->
+                <onchange></onchange>
+                <value_default></value_default>
+            </name>
+            <slug>
+                <label>Đường dẫn</label>
+                <type>text</type>
+                <required>true</required>
+                <xml_data>true</xml_data>
+                <xml_tag_in_db>false</xml_tag_in_db>
+                <column_name>slug</column_name>
+                <width>100%</width>
+                <class_input>form-control</class_input>
+                <placeholder>Nhập đường dẫn</placeholder>
+                <object></object> <!-- trường đặc biệt -->
+                <onchange></onchange>
+                <value_default></value_default>
+            </slug>
+            <images>
+                <label>Ảnh đại diện</label>
+                <type>file</type>
+                <required>true</required>
+                <xml_data>true</xml_data>
+                <xml_tag_in_db>false</xml_tag_in_db>
+                <column_name>images</column_name>
+                <width>100%</width>
+                <class_input></class_input>
+                <placeholder>Nhập tên căn hộ</placeholder>
+                <object></object> <!-- trường đặc biệt -->
+                <onchange>JS_Apartment.showImage(this)</onchange>
+                <click></click>
+                <value_default></value_default>
+            </images>
+        </formfield_list>
+    </update_object>
+</root>

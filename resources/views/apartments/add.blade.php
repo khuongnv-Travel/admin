@@ -8,15 +8,8 @@
             <form id="frmApartments_add" autocomplete="off" enctype="multipart/form-data">
                 <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="id" id="id" value="{{ $datas->id ?? '' }}">
-                <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Tên căn hộ</span></label></div>
-                    <div class="col-md-9"><input type="text" name="name" id="name" class="form-control" placeholder="Nhập tên căn hộ" value="{{ $datas->name ?? '' }}"></div>
-                </div>
-                <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Đường dẫn</span></label></div>
-                    <div class="col-md-9"><input type="text" name="slug" id="slug" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
-                </div>
-                <div class="mb-3 row">
+                {!! $htmls !!}
+                {{--<div class="mb-3 row">
                     <div class="col-md-3"><label><span>Ảnh đại diện</span></label></div>
                     <div class="col-md-9">
                         <label for="images" class="btn btn-default mt-0">Chọn ảnh</label>
@@ -27,7 +20,7 @@
                             @endif
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 <div class="mb-3 row">
                     <div class="col-md-3"><label class="required"><span>Thứ tự</span></label></div>
                     <div class="col-md-3">
