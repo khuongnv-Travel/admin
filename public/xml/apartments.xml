@@ -9,6 +9,21 @@
             </row_list>
         </table_structure>
         <formfield_list>
+            <listtype_id>
+                <label>Danh mục căn hộ</label>
+                <type>select</type>
+                <required>true</required>
+                <listtype_code>DM_CAN_HO</listtype_code>
+                <xml_data>false</xml_data>
+                <xml_tag_in_db>false</xml_tag_in_db>
+                <column_name>listtype_id</column_name>
+                <width>100%</width>
+                <class_input>chzn-select form-control</class_input>
+                <placeholder></placeholder>
+                <object></object> <!-- trường đặc biệt -->
+                <onchange></onchange>
+                <value_default></value_default>
+            </listtype_id>
             <name>
                 <label>Tên căn hộ</label>
                 <type>text</type>

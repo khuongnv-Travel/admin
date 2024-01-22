@@ -2,6 +2,8 @@
 
 namespace Modules\Backend\Helpers;
 
+use Modules\Core\Helpers\ListtypeHelper;
+
 class XmlHelper
 {
     public function xmlGenerateFormfield($xmlFileName, $datas)
@@ -21,6 +23,7 @@ class XmlHelper
         $sLabel = isset($data['label']) && !empty($data['label']) ? $data['label'] : '';
         $sType = isset($data['type']) && !empty($data['type']) ? $data['type'] : '';
         $sRequired = isset($data['required']) && !empty($data['required']) ? $data['required'] : '';
+        $sListtypeCode = isset($data['listtype_code']) && !empty($data['listtype_code']) ? $data['listtype_code'] : '';
         $sXmlData = isset($data['xml_data']) && !empty($data['xml_data']) ? $data['xml_data'] : '';
         $sXmlTagInDb = isset($data['xml_tag_in_db']) && !empty($data['xml_tag_in_db']) ? $data['xml_tag_in_db'] : '';
         $sColumnName = isset($data['column_name']) && !empty($data['column_name']) ? $data['column_name'] : '';
@@ -44,6 +47,14 @@ class XmlHelper
                 $htmls .= '<label for="' . $sColumnName . '" class="btn btn-default mb-0">Chọn ảnh</label>';
                 $htmls .= '<input hidden type="' . $sType . '" name="' . $sColumnName . '" id="' . $sColumnName . '" class="' . $sClassInput . '" placeholder="' . $sPlaceholder . '" value="" onchange="' . $sOnchange . '">';
                 $htmls .= '<div id="feature_img" class="mt-1 col-md-3"></div></div>';
+                break;
+            case 'select':
+                $arr = ListtypeHelper::_getAllByCode($sListtypeCode);
+                $htmls .= '<div class="col-md-9"><select class="' . $sClassInput . '">';
+                foreach($arr as $m => $n){
+                    $htmls .= '<option value="' . $n->id . '">' . $n->name . '</option>';
+                }
+                $htmls .= '</select></div>';
                 break;
         }
         $htmls .= '</div>';
