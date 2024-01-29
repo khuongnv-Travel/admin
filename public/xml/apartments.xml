@@ -3,9 +3,12 @@
     <update_object>
         <table_structure>
             <row_list>
-                <row>
-
-                </row>
+                <row>listtype_id</row>
+                <tag_list>listtype_id</tag_list>
+            </row_list>
+            <row_list>
+                <row>name</row>
+                <tag_list>name,slug</tag_list>
             </row_list>
         </table_structure>
         <formfield_list>
@@ -32,6 +35,7 @@
                 <xml_tag_in_db>false</xml_tag_in_db>
                 <column_name>name</column_name>
                 <width>100%</width>
+                <class_div_input>col-md-3</class_div_input>
                 <class_input>form-control</class_input>
                 <placeholder>Nhập tên căn hộ</placeholder>
                 <object></object> <!-- trường đặc biệt -->

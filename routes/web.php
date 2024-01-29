@@ -6,6 +6,7 @@ use Modules\Backend\Controllers\DashboardController;
 use Modules\Backend\Controllers\ListController;
 use Modules\Backend\Controllers\ListtypeController;
 use Modules\Backend\Controllers\RoomController;
+use Modules\Backend\Controllers\SupportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,5 +70,11 @@ Route::prefix('/')->group(function(){
             Route::post('changeStatus', [ListController::class, 'changeStatus']);
             Route::post('updateOrderTable', [ListController::class, 'updateOrderTable']);
         });
+    });
+    Route::prefix('support')->group(function(){
+        Route::get('/', [SupportController::class, 'index']);
+        Route::post('formUpdate', [SupportController::class, 'formUpdate']);
+        Route::post('updateData', [SupportController::class, 'updateData']);
+        Route::post('updateFile', [SupportController::class, 'updateFile']);
     });
 });

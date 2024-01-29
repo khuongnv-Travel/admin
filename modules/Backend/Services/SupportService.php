@@ -12,6 +12,8 @@ class SupportService
     private $apiService;
     private $listtypeService;
     private $listService;
+    private $config;
+
     public function __construct(ApiService $apiService, ListtypeService $listtypeService, ListService $listService)
     {
         $this->apiService      = $apiService;
@@ -31,15 +33,31 @@ class SupportService
         return $data;
     }
     /**
+     * 
+     */
+    public function formUpdate($input)
+    {
+        $data['datas'] = $this->listService->where('listtype_id', \DB::select("select id from listtype where code = '".$input['listtype_code']."'")[0]->id)->get();
+        return $data;
+    }
+    /**
      * Lấy danh sách đối tượng
      */
     public function updateData($input): array
     {
-        $config = config('supportConfig');
-        if(array_key_exists($input['code'], $config)){
-            $data = $config[$input['code']];
-            $response = $this->apiService->callApi($data['url'], $data['params'], $data['method']);
-            $result = $this->{$input['code']}($response, ($input['type'] ?? ''));
+        $this->config = config('supportConfig');
+        // dd($input, $this->config);
+        if(array_key_exists($input['code'], $this->config)){
+            $data = $this->config[$input['code']];
+            if(isset($data['options']) && $input['type'] && isset($data['options'][$input['type']])){
+                $listtype = $this->listtypeService->where('code', $input['type'])->first();
+                $lists = $this->listService->where('listtype_id', $listtype->id)->where('id', $input['listtype_id'])->first();
+                $url = $data['options'][$input['type']]['url'] . $lists->order;
+                $response = $this->apiService->callApi($url, $data['options'][$input['type']]['params'], $data['method']);
+            }else{
+                $response = $this->apiService->callApi($data['url'], $data['params'], $data['method']);
+            }
+            $result = $this->{$input['code']}($response, $input['listtype_id'] ?? '');
             return array('success' => true, 'message' => 'Cập nhật thành công');
         }else{
             return array('success' => false, 'message' => 'Không tồn tại mã <b class="text-primary">' . $input['code'] . '</b>!');
@@ -49,7 +67,7 @@ class SupportService
      * Lấy danh mục tỉnh thành
      * @param $data Dữ liệu truyền vào
      */
-    public function danhmuctinhthanh($data, $type = '')
+    public function danhmuctinhthanh($data)
     {
         $this->getDataDiaDanhHanhChinh($data, 'DM_TINH_THANH');
     }
@@ -57,7 +75,7 @@ class SupportService
      * Lấy danh mục quận huyện
      * @param $data Dữ liệu truyền vào
      */
-    public function danhmucquanhuyen($data, $type = '')
+    public function danhmucquanhuyen($data)
     {
         $this->getDataDiaDanhHanhChinh($data, 'DM_QUAN_HUYEN');
     }
@@ -65,30 +83,34 @@ class SupportService
      * Lấy danh mục phường xã
      * @param $data Dữ liệu truyền vào
      */
-    public function danhmucphuongxa($data, $type = '')
+    public function danhmucphuongxa($data, $listtype_id = '')
     {
-        $this->getDataDiaDanhHanhChinh($data, 'DM_PHUONG_XA', $type);
+        $this->getDataDiaDanhHanhChinh($data, 'DM_PHUONG_XA', $listtype_id);
     }
     /**
      * Cập nhật danh mục địa danh hành chính
      * @param $data Dữ liệu truyền vào
      * @param $listtype_code Mã danh mục
      */
-    public function getDataDiaDanhHanhChinh($data, $listtype_code, $type = '')
+    public function getDataDiaDanhHanhChinh($data, $listtype_code, $parent_id = '')
     {
         $listtype = $this->listtypeService->where('code', $listtype_code)->first();
+        if(empty($listtype)){
+            $listtype = $this->insertListtype($listtype_code);
+        }
         $arr = [];
         $lists = $this->listService->select('code')->where('listtype_id', $listtype->id)->get()->toArray();
         foreach($lists as $list){
             array_push($arr, $list['code']);
         }
         $params = [];
+        dd($data);
         foreach($data as $key => $value){
             $params = [
                 'id' => (string)\Str::uuid(),
                 'listtype_id' => $listtype->id,
                 'code' => strtoupper($value['codename']),
-                'code_other' => strtoupper($value['code']),
+                'parent_id' => $parent_id,
                 'name' => $value['name'],
                 'note' => $value['division_type'],
                 'order' => $key + 1,
@@ -102,5 +124,22 @@ class SupportService
                 $this->listService->where('listtype_id', $listtype->id)->where('code', strtoupper($value['codename']))->update($params);
             }
         }
+    }
+    public function insertListtype ($listtype_code)
+    {
+        foreach($this->config as $k => $v){
+            if($v['code'] == $listtype_code){
+                $name = $v['name_listtype'];
+            }
+        }
+        $params = [
+            'id' => (string)\Str::uuid(),
+            'code' => $listtype_code,
+            'name' => $name ?? '',
+            'order' => $this->listtypeService->select('*')->count() + 1,
+            'status' => 1,
+        ];
+        $this->listtypeService->insert($params);
+        return $this->listtypeService->where('code', $listtype_code)->first();
     }
 }

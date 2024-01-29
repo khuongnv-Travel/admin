@@ -11,7 +11,6 @@
 @endsection
 
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -28,6 +27,15 @@
             <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
             <div class="card-header">
                 <div class="row">
+                    <div class="col-md-4">
+                        <select name="listtype_id" id="listtype_id" class="chzn-select form-control">
+                            @if(isset($listtype))
+                            @foreach($listtype as $value)
+                            <option value="{{ $value['id'] }}">{{ $value['name'] }}</option>
+                            @endforeach
+                            @endif
+                        </select>
+                    </div>
                     @include('button.search')
                 </div>
             </div>

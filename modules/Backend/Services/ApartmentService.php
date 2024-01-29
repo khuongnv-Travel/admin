@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Modules\Backend\Helpers\XmlHelper;
 use Modules\Backend\Repositories\ApartmentRepository;
 use Modules\Core\BaseService;
+use Modules\Core\Helpers\ListtypeHelper;
 use Modules\Core\Helpers\LoggerHelpers;
 
 class ApartmentService extends BaseService
@@ -33,7 +34,7 @@ class ApartmentService extends BaseService
      */
     public function index(): array
     {
-        $data = [];
+        $data['listtype'] = ListtypeHelper::_getAllByCode('DM_CAN_HO');
         return $data;
     }
     /**
@@ -57,11 +58,8 @@ class ApartmentService extends BaseService
      */
     public function create($input): array
     {
-        $xmlHelper = new XmlHelper;
-        $base_path = base_path() . '\public\xml\apartments.xml';
-        $datas = array();
-        $data['htmls'] = $xmlHelper->xmlGenerateFormfield($base_path, $datas);
-
+        $data['listtype'] = ListtypeHelper::_getAllByCode('DM_CAN_HO');
+        $data['listtype_id'] = $input['listtype_id'] ?? '';
         $rooms = $this->repository->select('order')->orderBy('order', 'desc')->first();
         $data['order'] = isset($rooms->order) ? (int)$rooms->order + 1 : 1;
         return $data;

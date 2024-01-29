@@ -27,13 +27,13 @@ JS_List.prototype.loadIndex = function () {
         myClass.delete();
     });
     $("#btn_search").click(function () {
-        search();
+        myClass.search();
     });
     $("#btn_update_order").click(function () {
         myClass.updateOrderTable();
     });
     $("#listtype_id").change(function () {
-        search();
+        myClass.search();
     });
 }
 /**

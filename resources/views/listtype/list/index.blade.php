@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="card">
-        <form id="frmListtype_index">
+        <form id="frmList_index">
             <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
             <div class="card-header">
                 <div class="row">

@@ -78,6 +78,7 @@ JS_Apartment.prototype.create = function () {
     var url = myClass.urlPath + '/create';
     var data = {
         _token: $("#_token").val(),
+        listtype_id: $('#listtype_id').val(),
     }
     Library.showloadding();
     $.ajax({

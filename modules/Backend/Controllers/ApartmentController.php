@@ -19,7 +19,7 @@ class ApartmentController extends Controller
     public function index()
     {
         $data = $this->apartmentService->index();
-        return view('apartments.index');
+        return view('apartments.index', $data);
     }
     /**
      * Danh sách
