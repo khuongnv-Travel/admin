@@ -34,7 +34,7 @@ class ListtypeController extends Controller
      */
     public function create(Request $request)
     {
-        $data = $this->listtypeService->create($request->all());
+        $data = $this->listtypeService->_create($request->all());
         return view('listtype.listtype.add', $data);
     }
     /**
@@ -42,7 +42,7 @@ class ListtypeController extends Controller
      */
     public function edit(Request $request)
     {
-        $data = $this->listtypeService->edit($request->all());
+        $data = $this->listtypeService->_edit($request->all());
         return view('listtype.listtype.add', $data);
     }
     /**

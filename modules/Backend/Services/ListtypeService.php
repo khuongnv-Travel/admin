@@ -50,7 +50,7 @@ class ListtypeService extends BaseService
      * @param $input Dữ liệu truyền vào
      * @return array
      */
-    public function create($input): array
+    public function _create($input): array
     {
         $listtype = $this->repository->select('order')->orderBy('order', 'desc')->first();
         $data['order'] = isset($listtype->order) ? (int)$listtype->order + 1 : 1;
@@ -61,7 +61,7 @@ class ListtypeService extends BaseService
      * @param $input Dữ liệu truyền vào
      * @return array
      */
-    public function edit($input): array
+    public function _edit($input): array
     {
         $listtype = $this->repository->where('id', $input['id'])->first();
         $data['checked'] = $listtype->status == 1 ? 'checked="checked"' : '';

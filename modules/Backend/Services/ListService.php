@@ -52,7 +52,7 @@ class ListService extends BaseService
      * @param $input Dữ liệu truyền vào
      * @return array
      */
-    public function create($input): array
+    public function _create($input): array
     {
         $listtype = $this->listtypeService->where('id', $input['listtype_id'])->first();
         if(empty($listtype)){
@@ -68,7 +68,7 @@ class ListService extends BaseService
      * @param $input Dữ liệu truyền vào
      * @return array
      */
-    public function edit($input): array
+    public function _edit($input): array
     {
         $listtype = $this->listtypeService->where('id', $input['listtype_id'])->first();
         if(empty($listtype)){

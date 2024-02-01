@@ -35,7 +35,7 @@ class ListController extends Controller
      */
     public function create(Request $request)
     {
-        $data = $this->listService->create($request->all());
+        $data = $this->listService->_create($request->all());
         if(isset($data['success']) && $data['success'] == false){
             return $data;
         }
@@ -46,7 +46,7 @@ class ListController extends Controller
      */
     public function edit(Request $request)
     {
-        $data = $this->listService->edit($request->all());
+        $data = $this->listService->_edit($request->all());
         return view('listtype.list.add', $data);
     }
     /**
