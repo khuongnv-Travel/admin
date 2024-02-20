@@ -73,7 +73,6 @@ Route::prefix('/')->group(function(){
     });
     Route::prefix('support')->group(function(){
         Route::get('/', [SupportController::class, 'index']);
-        Route::post('formUpdate', [SupportController::class, 'formUpdate']);
         Route::post('updateData', [SupportController::class, 'updateData']);
         Route::post('updateFile', [SupportController::class, 'updateFile']);
     });
