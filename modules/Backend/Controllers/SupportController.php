@@ -37,11 +37,54 @@ class SupportController extends Controller
     public function updateFile(Request $request)
     {
         $array = Excel::toArray(new UsersImport, $_FILES['files']['tmp_name']);
-        // dd($array[0][1], $request->all());
-        unset($array[0][0]);
+        // dd($array[0][0], $array[0][1], $request->all());
+        if(!is_numeric($array[0][0][1])){
+            unset($array[0][0]);
+        }
+        $arrTinhThanh = array();
+        $arrQuanHuyen = array();
+        $arrPhuongXa = array();
+        $listtype_id_tt = $this->listtypeService->select('*')->where('code', 'DM_TINH_THANH')->first();
+        $listtype_id_qh = $this->listtypeService->select('*')->where('code', 'DM_QUAN_HUYEN')->first();
+        $listtype_id_px = $this->listtypeService->select('*')->where('code', 'DM_PHUONG_XA')->first();
         try {
-
             foreach ($array[0] as $key => $value) {
+                // dd($value);
+                $params = array();
+
+                $idTT = strtoupper((string)\Str::uuid());
+                $idQH = strtoupper((string)\Str::uuid());
+                $idPX = strtoupper((string)\Str::uuid());
+
+                $codeTT = strtoupper(str_replace('-', '_', \Str::slug($value[0])));
+                $codeQH = strtoupper(str_replace('-', '_', \Str::slug($value[2])));
+                $codePX = strtoupper(str_replace('-', '_', \Str::slug($value[4])));
+                if(!in_array($codeTT . '_' . $idTT, $arrTinhThanh)){
+                    $tt = [
+                        'id' => $idTT,
+                        'code' => $codeTT,
+                        'parent_id' => null,
+                    ];
+                    array_push($arrTinhThanh, $codeTT . '_' . $idTT);
+                    array_push($params, $tt);
+                }
+                dd($arrTinhThanh);
+            }
+        } catch(\Exception $e){
+
+        }
+        dd(12);
+
+
+
+
+
+
+
+
+        try {
+            foreach ($array[0] as $key => $value) {
+                // dd($value);
                 $code_other = '';
                 $param = [];
                 if ($request->listtype_code == 'DM_TINH_THANH') {
@@ -73,6 +116,24 @@ class SupportController extends Controller
         } catch (\Exception $e) {
             return array('success' => true, 'message' => $e->getMessage());
         }
+    }
+    /**
+     * Dữ liệu thêm mới
+     */
+    public function getParam($id, $listtype_id, $code, $name, $parent_id = null)
+    {
+        $params = [
+            'id' => $id ?? (string)\Str::uuid(),
+            'listtype_id' => $listtype_id,
+            'parent_id' => $parent_id,
+            'code' => $code,
+            'name' => $name,
+            'order' => $order ?? $this->listService->where('listtype_id', $listtype_id)->count() + 1,
+            'status' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+        return $params;
     }
     /**
      * Cache
