@@ -14,6 +14,18 @@
                         <input type="button" class="form-control text-start" disabled value="{{ $listtype->name }}">
                     </div>
                 </div>
+                @if(isset($parents))
+                <div class="mb-3 row">
+                    <div class="col-md-3"><label class="required"><span>Quận huyện</span></label></div>
+                    <div class="col-md-9">
+                        <select name="parent_id" id="parent_id" class="form-control chzn-select">
+                            @foreach($parents as $parent)
+                            <option value="{{ $parent->id }}">{{ $parent->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                @endif
                 <div class="mb-3 row">
                     <div class="col-md-3"><label class="required"><span>Mã đối tượng</span></label></div>
                     <div class="col-md-9">

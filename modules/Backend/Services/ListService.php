@@ -61,6 +61,11 @@ class ListService extends BaseService
         $data['listtype'] = $listtype;
         $list = $this->repository->select('order')->where('listtype_id', $input['listtype_id'])->orderBy('order', 'desc')->first();
         $data['order'] = isset($list->order) ? (int)$list->order + 1 : 1;
+        // parents
+        if($listtype->code == 'DM_QUAN_HUYEN'){
+            $listtype_id = $this->listtypeService->where('code', 'DM_TINH_THANH')->first();
+            $data['parents'] = $this->repository->where('listtype_id', $listtype_id->id)->get();
+        }
         return $data;
     }
     /**
