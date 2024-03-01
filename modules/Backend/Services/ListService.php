@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace Modules\Backend\Services;
 
 use Modules\Backend\Repositories\ListRepository;
@@ -55,16 +55,20 @@ class ListService extends BaseService
     public function _create($input): array
     {
         $listtype = $this->listtypeService->where('id', $input['listtype_id'])->first();
-        if(empty($listtype)){
+        if (empty($listtype)) {
             return array('success' => false, 'message' => 'Không tồn tại mã chuyên mục');
         }
         $data['listtype'] = $listtype;
         $list = $this->repository->select('order')->where('listtype_id', $input['listtype_id'])->orderBy('order', 'desc')->first();
         $data['order'] = isset($list->order) ? (int)$list->order + 1 : 1;
         // parents
-        if($listtype->code == 'DM_QUAN_HUYEN'){
+        if ($listtype->code == 'DM_QUAN_HUYEN') {
             $listtype_id = $this->listtypeService->where('code', 'DM_TINH_THANH')->first();
             $data['parents'] = $this->repository->where('listtype_id', $listtype_id->id)->get();
+        } elseif ($listtype->code == 'DM_PHUONG_XA') {
+            $listtype_id = $this->listtypeService->where('code', 'DM_TINH_THANH')->first();
+            $data['units'] = $this->repository->where('listtype_id', $listtype_id->id)->get();
+            $data['parents'] = [];
         }
         return $data;
     }
@@ -76,7 +80,7 @@ class ListService extends BaseService
     public function _edit($input): array
     {
         $listtype = $this->listtypeService->where('id', $input['listtype_id'])->first();
-        if(empty($listtype)){
+        if (empty($listtype)) {
             return array('success' => false, 'message' => 'Không tồn tại mã chuyên mục');
         }
         $data['listtype'] = $listtype;
@@ -143,6 +147,22 @@ class ListService extends BaseService
         } catch (\Exception $e) {
             $this->logger->setChannel('UpdateOrderTable')->log('Message', ['Line:' => $e->getLine(), 'Message:' => $e->getMessage(), 'FileName:' => $e->getFile()]);
             return array('success' => false, 'message' => 'Cập nhật thất bại!');
+        }
+    }
+    /**
+     * 
+     */
+    public function changeUnit($input)
+    {
+        if (isset($input['units']) && !empty($input['units'])) {
+            $lists = $this->repository->where('parent_id', $input['units'])->get();
+            $html = '';
+            foreach ($lists as $list) {
+                $html .= '<option value="' . $list->id . '">' . $list->name . '</option>';
+            }
+            return $html;
+        } else {
+            return '';
         }
     }
     public function changeStatus($input): array

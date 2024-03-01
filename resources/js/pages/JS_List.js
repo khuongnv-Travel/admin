@@ -102,6 +102,9 @@ JS_List.prototype.create = function () {
             $("#addModal").modal('show');
             $("#status").attr('checked', true);
             $('.chzn-select').chosen({ height: '100%', width: '100%', search_contains: true });
+            $("#units").change(function(){
+                myClass.changeUnit();
+            });
             $("#btn_update").click(function () {
                 myClass.update(false);
             });
@@ -303,6 +306,32 @@ JS_List.prototype.updateOrderTable = function () {
                 text: 'Đóng',
                 action: function () { }
             },
+        }
+    });
+}
+/**
+ * Thay đổi unit
+ */
+JS_List.prototype.changeUnit = function(){
+    var myClass = this;
+    var url = myClass.urlPath + '/changeUnit';
+    var data = {
+        _token: $("#_token").val(),
+        units: $("#units").val(),
+    }
+    Library.showloadding();
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: data,
+        success: function (result) {
+            $("#parent_id").html(result);
+            $('.chzn-select').chosen({ height: '100%', width: '100%', search_contains: true });
+            $('.chzn-select').trigger("chosen:updated");
+            Library.hideloadding();
+        }, error: function (e) {
+            console.log(e);
+            Library.hideloadding();
         }
     });
 }

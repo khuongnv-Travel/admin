@@ -14,6 +14,19 @@
                         <input type="button" class="form-control text-start" disabled value="{{ $listtype->name }}">
                     </div>
                 </div>
+                @if(isset($units))
+                <div class="mb-3 row">
+                    <div class="col-md-3"><label class="required"><span>Thành phố</span></label></div>
+                    <div class="col-md-9">
+                        <select name="units" id="units" class="form-control chzn-select">
+                            <option value="">--Chọn thành phố--</option>
+                            @foreach($units as $unit)
+                            <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                @endif
                 @if(isset($parents))
                 <div class="mb-3 row">
                     <div class="col-md-3"><label class="required"><span>Quận huyện</span></label></div>

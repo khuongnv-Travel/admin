@@ -33,12 +33,13 @@ class ListRepository extends BaseRepository
             $sql->id         = (string)\Str::uuid();
             $sql->created_at = date('Y-m-d H:i:s');
         }
-        $sql->listtype_id   = $data['listtype_id'] ?? null;
-        $sql->code          = strtoupper($data['code']) ?? null;
-        $sql->name          = $data['name'] ?? null;
-        $sql->note          = $data['note'] ?? null;
-        $sql->order         = $data['order'] ?? null;
-        $sql->status        = isset($data['status']) && $data['status'] === 'on' ? 1: 0;
+        $sql->listtype_id = $data['listtype_id'] ?? null;
+        $sql->parent_id   = $data['parent_id'] ?? null;
+        $sql->code        = strtoupper($data['code']) ?? null;
+        $sql->name        = $data['name'] ?? null;
+        $sql->note        = $data['note'] ?? null;
+        $sql->order       = $data['order'] ?? null;
+        $sql->status      = isset($data['status']) && $data['status'] === 'on' ? 1: 0;
         $sql->save();
         return $sql;
     }

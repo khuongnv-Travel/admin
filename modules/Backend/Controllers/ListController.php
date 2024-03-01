@@ -74,6 +74,14 @@ class ListController extends Controller
         return $data;
     }
     /**
+     * Thay đổi Unit
+     */
+    public function changeUnit(Request $request)
+    {
+        $data = $this->listService->changeUnit($request->all());
+        return $data;
+    }
+    /**
      * Cập nhật trạng thái
      */
     public function changeStatus(Request $request)

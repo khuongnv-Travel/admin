@@ -44,6 +44,7 @@ Route::prefix('/')->group(function(){
             Route::post('edit', [ListController::class, 'edit']);
             Route::post('update', [ListController::class, 'update']);
             Route::post('delete', [ListController::class, 'delete']);
+            Route::post('changeUnit', [ListController::class, 'changeUnit']);
             Route::post('changeStatus', [ListController::class, 'changeStatus']);
             Route::post('updateOrderTable', [ListController::class, 'updateOrderTable']);
         });
