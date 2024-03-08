@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-xl">
     <div class="modal-content">
         <div class="modal-header">
             <h2 class="modal-title" id="exampleModalLabel">{{ isset($datas) ? 'Cập nhật' : 'Thêm mới' }}</h2>
@@ -10,14 +10,12 @@
                 <input type="hidden" name="id" id="id" value="{{ $datas->id ?? '' }}">
                 <!-- Danh mục -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Danh mục căn hộ</span></label></div>
-                    <div class="col-md-9">
+                    <div class="col-md-2"><label class="required"><span>Danh mục căn hộ</span></label></div>
+                    <div class="col-md-10">
                         <select name="listtype_id" id="listtype_id" class="chzn-select form-control">
                             @if(isset($listtype))
                             @foreach($listtype as $value)
-                            <option value="{{ $value['id'] }}"
-                                @if(isset($listtype_id) && $listtype_id == $value['id']) selected @endif
-                            >{{ $value['name'] }}</option>
+                            <option value="{{ $value['id'] }}" @if(isset($listtype_id) && $listtype_id==$value['id']) selected @endif>{{ $value['name'] }}</option>
                             @endforeach
                             @endif
                         </select>
@@ -25,24 +23,24 @@
                 </div>
                 <!-- Mã căn hộ -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Tên căn hộ</span></label></div>
-                    <div class="col-md-9"><input type="text" name="name" id="name" class="form-control" placeholder="Nhập tên căn hộ" value="{{ $datas->name ?? '' }}"></div>
+                    <div class="col-md-2"><label class="required"><span>Tên căn hộ</span></label></div>
+                    <div class="col-md-10"><input type="text" name="name" id="name" class="form-control" placeholder="Nhập tên căn hộ" value="{{ $datas->name ?? '' }}"></div>
                 </div>
                 <!-- Tên căn hộ -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Đường dẫn</span></label></div>
-                    <div class="col-md-9"><input type="text" name="slug" id="slug" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
+                    <div class="col-md-2"><label class="required"><span>Đường dẫn</span></label></div>
+                    <div class="col-md-10"><input type="text" name="slug" id="slug" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
                 </div>
                 <!-- Đường dẫn -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Đường dẫn</span></label></div>
-                    <div class="col-md-9"><input type="text" name="slug" id="slug" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
+                    <div class="col-md-2"><label class="required"><span>Đường dẫn</span></label></div>
+                    <div class="col-md-10"><input type="text" name="slug" id="slug" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
                 </div>
                 <!-- Ảnh đại diện -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label><span>Ảnh đại diện</span></label></div>
-                    <div class="col-md-9">
-                        <label for="images" class="btn btn-default mt-0">Chọn ảnh</label>
+                    <div class="col-md-2"><label><span>Ảnh đại diện</span></label></div>
+                    <div class="col-md-10">
+                        <label for="images" class="btn btn-default mt-0 mb-0">Chọn ảnh</label>
                         <input type="file" hidden name="images" id="images" onchange="JS_Apartment.showImage(this)">
                         <div id="feature_img" class="mt-1 col-md-3">
                             @if(isset($datas->images) && $datas->images)
@@ -53,39 +51,48 @@
                 </div>
                 <!-- Tỉnh/Thành -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Chọn địa chỉ</span></label></div>
-                    <div class="col-md-3">
-                        <select name="city" id="city" class="chzn-select form-control">
-                            @if(isset($city))
-                            @foreach($city as $key => $value)
-                            <option value="{{ $value['code'] }}">{{ $value['name'] }}</option>
-                            @endforeach
-                            @endif
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <select name="city" id="city" class="chzn-select form-control"></select>
-                    </div>
-                    <div class="col-md-3">
-                        <select name="city" id="city" class="chzn-select form-control"></select>
+                    <div class="col-md-2"><label class="required"><span>Chọn địa chỉ</span></label></div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select name="provinces" id="provinces" class="chzn-select form-control">
+                                    <option value="">--Chọn Tỉnh/Thành--</option>
+                                    @if(isset($provinces))
+                                    @foreach($provinces as $key => $value)
+                                    <option value="{{ $value['id'] }}">{{ $value['name'] }}</option>
+                                    @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select name="districts" id="districts" class="chzn-select form-control">
+                                    <option value="">--Chọn Quận/Huyện--</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select name="wards" id="wards" class="chzn-select form-control">
+                                    <option value="">--Chọn Phường/Xã/Thị trấn--</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Địa chỉ -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Địa chỉ</span></label></div>
-                    <div class="col-md-9"><input type="text" name="address" id="address" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
+                    <div class="col-md-2"><label class="required"><span>Địa chỉ</span></label></div>
+                    <div class="col-md-10"><input type="text" name="address" id="address" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
                 </div>
                 <!-- Ghi chú -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Ghi chú</span></label></div>
-                    <div class="col-md-9">
-                        <textarea name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
+                    <div class="col-md-2"><label class="required"><span>Ghi chú</span></label></div>
+                    <div class="col-md-10">
+                        <textarea name="content" id="content" class="form-control" cols="30" rows="5"></textarea>
                     </div>
                 </div>
                 <!-- Thứ tự & trạng thái -->
                 <div class="mb-3 row">
-                    <div class="col-md-3"><label class="required"><span>Thứ tự</span></label></div>
-                    <div class="col-md-3">
+                    <div class="col-md-2"><label class="required"><span>Thứ tự</span></label></div>
+                    <div class="col-md-2">
                         <input type="number" name="order" id="order" class="form-control" placeholder="Thứ tự" value="{{ $datas->order ?? ( $order ?? '' ) }}">
                     </div>
                     <div class="col-md-6">

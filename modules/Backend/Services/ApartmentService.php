@@ -62,6 +62,7 @@ class ApartmentService extends BaseService
         $data['listtype_id'] = $input['listtype_id'] ?? '';
         $rooms = $this->repository->select('order')->orderBy('order', 'desc')->first();
         $data['order'] = isset($rooms->order) ? (int)$rooms->order + 1 : 1;
+        $data['provinces'] = ListtypeHelper::_getAllByCode('DM_TINH_THANH');
         return $data;
     }
     /**

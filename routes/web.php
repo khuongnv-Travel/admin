@@ -5,6 +5,7 @@ use Modules\Backend\Controllers\ApartmentController;
 use Modules\Backend\Controllers\DashboardController;
 use Modules\Backend\Controllers\ListController;
 use Modules\Backend\Controllers\ListtypeController;
+use Modules\Backend\Controllers\ProvinceController;
 use Modules\Backend\Controllers\RoomController;
 use Modules\Backend\Controllers\SupportController;
 
@@ -20,6 +21,10 @@ use Modules\Backend\Controllers\SupportController;
 */
 
 Route::prefix('/')->group(function(){
+    Route::prefix('/')->group(function() {
+        Route::post('changeProvince', [ProvinceController::class, 'changeProvince']); // Thay đổi Quận/Huyện theo Tỉnh/Thành
+        Route::post('changeDistrict', [ProvinceController::class, 'changeDistrict']); // Thay đổi Phường/Xã theo Quận/Huyện
+    });
     // Dashboard
     Route::prefix('/')->group(function(){
         Route::get('', [DashboardController::class, 'index']);
