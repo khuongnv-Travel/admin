@@ -23,18 +23,18 @@
                 </div>
                 <!-- Mã căn hộ -->
                 <div class="mb-3 row">
-                    <div class="col-md-2"><label class="required"><span>Tên căn hộ</span></label></div>
-                    <div class="col-md-10"><input type="text" name="name" id="name" class="form-control" placeholder="Nhập tên căn hộ" value="{{ $datas->name ?? '' }}"></div>
+                    <div class="col-md-2"><label class="required"><span>Mã căn hộ</span></label></div>
+                    <div class="col-md-10"><input type="text" name="code" id="code" class="form-control text-uppercase" placeholder="Nhập mã căn hộ" value="{{ $datas->code ?? '' }}"></div>
                 </div>
                 <!-- Tên căn hộ -->
                 <div class="mb-3 row">
-                    <div class="col-md-2"><label class="required"><span>Đường dẫn</span></label></div>
-                    <div class="col-md-10"><input type="text" name="slug" id="slug" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
+                    <div class="col-md-2"><label class="required"><span>Tên căn hộ</span></label></div>
+                    <div class="col-md-10"><input type="text" name="name" id="name" class="form-control" placeholder="Nhập tên căn hộ" value="{{ $datas->name ?? '' }}"></div>
                 </div>
                 <!-- Đường dẫn -->
                 <div class="mb-3 row">
                     <div class="col-md-2"><label class="required"><span>Đường dẫn</span></label></div>
-                    <div class="col-md-10"><input type="text" name="slug" id="slug" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
+                    <div class="col-md-10"><input type="text" name="slug" id="slug" class="form-control" disabled placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
                 </div>
                 <!-- Ảnh đại diện -->
                 <div class="mb-3 row">
@@ -80,7 +80,7 @@
                 <!-- Địa chỉ -->
                 <div class="mb-3 row">
                     <div class="col-md-2"><label class="required"><span>Địa chỉ</span></label></div>
-                    <div class="col-md-10"><input type="text" name="address" id="address" class="form-control" placeholder="Nhập đường dẫn" value="{{ $datas->slug ?? '' }}"></div>
+                    <div class="col-md-10"><input type="text" name="address" id="address" class="form-control" placeholder="Nhập địa chỉ" value="{{ $datas->slug ?? '' }}"></div>
                 </div>
                 <!-- Ghi chú -->
                 <div class="mb-3 row">
@@ -113,11 +113,3 @@
         </div>
     </div>
 </div>
-<script>
-    $("#name").change(function() {
-        var date = new Date;
-        var str = Library.convertStr(($("#name").val()).trim());
-        str = str + '-' + date.getTime() + '.html';
-        $("#slug").val(str);
-    });
-</script>

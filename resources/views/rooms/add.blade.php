@@ -51,11 +51,3 @@
         </div>
     </div>
 </div>
-<script>
-    $("#name").change(function() {
-        var date = new Date;
-        var str = Library.convertStr(($("#name").val()).trim());
-        str = str + '-' + date.getTime() + '.html';
-        $("#slug").val(str);
-    });
-</script>
