@@ -17,55 +17,108 @@ class ListSeeder extends Seeder
      */
     public function run()
     {
-        $id = (string)\Str::uuid();
-        $param = [
-            'id' => $id,
-            'code' => 'DM_CAN_HO',
-            'name' => 'Danh mục căn hộ',
-            'order' => ListtypeModel::select('*')->count() + 1,
-            'status' => 1,
-            'created_at' => date('Y-m-d H:i:s'),
-        ];
-        ListtypeModel::insert($param);
+        $id_canho = (string)\Str::uuid();
+        $id_xe = (string)\Str::uuid();
+        $count_listtype = ListtypeModel::select('*')->count();
         $count = ListModel::select('*')->count();
-        $param = [
-            [
-                'id' => (string)\Str::uuid(),
-                'listtype_id' => $id,
-                'code' => 'VILLA',
-                'name' => 'Villa',
-                'order' => ++$count,
+        
+        if (!ListtypeModel::select('*')->where('code', 'DM_CAN_HO')->exists()) {
+            ListtypeModel::insert([
+                'id' => $id_canho,
+                'code' => 'DM_CAN_HO',
+                'name' => 'Danh mục căn hộ',
+                'order' => ++$count_listtype,
                 'status' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'id' => (string)\Str::uuid(),
-                'listtype_id' => $id,
-                'code' => 'PENTHOUSE',
-                'name' => 'Penthouse',
-                'order' => ++$count,
+            ]);
+
+            ListModel::insert([
+                [
+                    'id' => (string)\Str::uuid(),
+                    'listtype_id' => $id_canho,
+                    'code' => 'VILLA',
+                    'name' => 'Villa',
+                    'order' => ++$count,
+                    'status' => 1,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id' => (string)\Str::uuid(),
+                    'listtype_id' => $id_canho,
+                    'code' => 'PENTHOUSE',
+                    'name' => 'Penthouse',
+                    'order' => ++$count,
+                    'status' => 1,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id' => (string)\Str::uuid(),
+                    'listtype_id' => $id_canho,
+                    'code' => 'HOTEL',
+                    'name' => 'Hotel',
+                    'order' => ++$count,
+                    'status' => 1,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id' => (string)\Str::uuid(),
+                    'listtype_id' => $id_canho,
+                    'code' => 'MOTEL',
+                    'name' => 'Motel',
+                    'order' => ++$count,
+                    'status' => 1,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ],
+            ]);
+        }
+        if (!ListtypeModel::select('*')->where('code', 'DM_LOAI_XE')->exists()) {
+            ListtypeModel::insert([
+                'id' => $id_canho,
+                'code' => 'DM_LOAI_XE',
+                'name' => 'Danh mục loại xe',
+                'order' => ++$count_listtype,
                 'status' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'id' => (string)\Str::uuid(),
-                'listtype_id' => $id,
-                'code' => 'HOTEL',
-                'name' => 'Hotel',
-                'order' => ++$count,
-                'status' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'id' => (string)\Str::uuid(),
-                'listtype_id' => $id,
-                'code' => 'MOTEL',
-                'name' => 'Motel',
-                'order' => ++$count,
-                'status' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-            ],
-        ];
-        ListModel::insert($param);
+            ]);
+
+            ListModel::insert([
+                [
+                    'id' => (string)\Str::uuid(),
+                    'listtype_id' => $id_xe,
+                    'code' => 'XE_4_CHO',
+                    'name' => 'Xe 4 chỗ',
+                    'order' => ++$count,
+                    'status' => 1,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id' => (string)\Str::uuid(),
+                    'listtype_id' => $id_xe,
+                    'code' => 'XE_7_CHO',
+                    'name' => 'Xe 7 chỗ',
+                    'order' => ++$count,
+                    'status' => 1,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id' => (string)\Str::uuid(),
+                    'listtype_id' => $id_xe,
+                    'code' => 'XE_KHACH',
+                    'name' => 'Xe khách',
+                    'order' => ++$count,
+                    'status' => 1,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ],
+                [
+                    'id' => (string)\Str::uuid(),
+                    'listtype_id' => $id_xe,
+                    'code' => 'XE_GIUONG_NAM',
+                    'name' => 'Xe giường nằm',
+                    'order' => ++$count,
+                    'status' => 1,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ],
+            ]);
+        }
     }
 }

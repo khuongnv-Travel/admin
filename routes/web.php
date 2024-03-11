@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Backend\Controllers\ApartmentController;
+use Modules\Backend\Controllers\CarController;
 use Modules\Backend\Controllers\DashboardController;
 use Modules\Backend\Controllers\ListController;
 use Modules\Backend\Controllers\ListtypeController;
@@ -77,6 +78,12 @@ Route::prefix('/')->group(function(){
             Route::post('updateOrderTable', [ListController::class, 'updateOrderTable']);
         });
     });
+    // Quản trị xe
+    Route::prefix('cars')->group(function (){
+        Route::get('', [CarController::class, 'index']);
+        Route::post('loadList', [CarController::class, 'loadList']);
+    });
+    // Hỗ trợ hệ thống
     Route::prefix('support')->group(function(){
         Route::get('/', [SupportController::class, 'index']);
         Route::post('updateData', [SupportController::class, 'updateData']);

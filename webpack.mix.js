@@ -39,5 +39,6 @@ mix.scripts([
     'resources/js/pages/JS_Listtype.js',
     'resources/js/pages/JS_List.js',
     'resources/js/pages/JS_Apartment.js',
+    'resources/js/pages/JS_Car.js',
     'resources/js/pages/JS_Support.js',
 ], 'public/assets/js/pages.min.js');
