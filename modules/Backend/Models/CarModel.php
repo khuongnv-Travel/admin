@@ -15,6 +15,7 @@ class CarModel extends Model
         'listtype_id',
         'code',
         'name',
+        'images',
         'note',
         'order',
         'status',

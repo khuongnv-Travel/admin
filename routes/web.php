@@ -82,6 +82,12 @@ Route::prefix('/')->group(function(){
     Route::prefix('cars')->group(function (){
         Route::get('', [CarController::class, 'index']);
         Route::post('loadList', [CarController::class, 'loadList']);
+        Route::post('create', [CarController::class, 'create']);
+        Route::post('edit', [CarController::class, 'edit']);
+        Route::post('update', [CarController::class, 'update']);
+        Route::post('delete', [CarController::class, 'delete']);
+        Route::post('changeStatus', [CarController::class, 'changeStatus']);
+        Route::post('updateOrderTable', [CarController::class, 'updateOrderTable']);
     });
     // Hỗ trợ hệ thống
     Route::prefix('support')->group(function(){

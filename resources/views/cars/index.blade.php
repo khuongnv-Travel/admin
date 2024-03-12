@@ -50,4 +50,5 @@
         </form>
     </div>
 </div>
+<div class="modal fade" id="addModal" data-bs-backdrop="static" data-bs-focus="false"></div>
 @endsection
