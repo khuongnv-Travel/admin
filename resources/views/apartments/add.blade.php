@@ -12,7 +12,7 @@
                 <div class="mb-3 row">
                     <div class="col-md-2"><label class="required"><span>Danh mục căn hộ</span></label></div>
                     <div class="col-md-10">
-                        <select name="listtype_id" id="listtype_id" class="chzn-select form-control">
+                        <select name="listtype" id="listtype" class="chzn-select form-control">
                             @if(isset($listtype))
                             @foreach($listtype as $value)
                             <option value="{{ $value['id'] }}" @if(isset($listtype_id) && $listtype_id==$value['id']) selected @endif>{{ $value['name'] }}</option>
@@ -41,7 +41,9 @@
                     <div class="col-md-2"><label><span>Ảnh đại diện</span></label></div>
                     <div class="col-md-10">
                         <label for="images" class="btn btn-default mt-0 mb-0">Chọn ảnh</label>
-                        <input type="file" hidden name="images" id="images" onchange="JS_Apartment.showImage(this)">
+                        <input type="file" hidden name="images" id="images"
+                                accept=".jpg, .jpeg, .png, .gif"
+                                onchange="JS_Apartment.showImage(this)">
                         <div id="feature_img" class="mt-1 col-md-3">
                             @if(isset($datas->images) && $datas->images)
                             <img src="{{ $datas->images }}" alt="Ảnh đại diện" width="100%">

@@ -92,6 +92,7 @@ JS_Apartment.prototype.create = function () {
         _token: $("#_token").val(),
         listtype_id: $('#listtype_id').val(),
     }
+    var date = new Date();
     Library.showloadding();
     $.ajax({
         url: url,
@@ -102,23 +103,25 @@ JS_Apartment.prototype.create = function () {
             $("#addModal").html(arrResult);
             $("#addModal").modal('show');
             $("#status").attr('checked', true);
-            // $('.chzn-select').chosen({ height: '100%', width: '100%', search_contains: true });
-            // $('.chzn-select').trigger("chosen:updated");
-            // myClass.loadEvent();
-            $("#listtype_id").change(function(){
-                console.log(123);
+            $('.chzn-select').chosen({ height: '100%', width: '100%', search_contains: true });
+            $('.chzn-select').trigger("chosen:updated");
+            myClass.loadEvent();
+            
+            var text = $("#listtype").find('option:selected').text();
+            var str = Library.convertStr(text.trim());
+            str = str + '-' + Library.randomNumber(10);
+            $("#code").val(str); // Tự in mã
+            
+            $("#listtype").change(function(){
                 var text = $(this).find('option:selected').text();
-                var date = new Date;
                 var str = Library.convertStr(text.trim());
-                str = str + '-' + date.getTime();
-                console.log(str);
+                str = str + '-' + Library.randomNumber(10);
                 $("#code").val(str);
             });
             $("#name").change(function() {
-                // var date = new Date;
-                // var str = Library.convertStr(($("#name").val()).trim());
-                // str = str + '-' + date.getTime() + '.html';
-                // $("#slug").val(str);
+                var str = Library.convertStr(($("#name").val()).trim());
+                str = str + '-' + date.getTime() + '.html';
+                $("#slug").val(str);
                 $("#slug").removeAttr('disabled');
             });
             $("#btn_update").click(function () {
